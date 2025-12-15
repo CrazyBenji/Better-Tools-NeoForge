@@ -1,0 +1,9 @@
+{
+  "values": [
+    "#forge:glass",
+    "#forge:glass_panes",
+    "minecraft:sea_lantern",
+    "minecraft:glowstone",
+    "minecraft:redstone_lamp"
+  ]
+}

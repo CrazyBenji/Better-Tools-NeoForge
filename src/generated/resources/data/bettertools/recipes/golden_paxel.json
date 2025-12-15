@@ -1,0 +1,26 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "key": {
+    "a": {
+      "item": "minecraft:golden_pickaxe"
+    },
+    "b": {
+      "item": "minecraft:golden_axe"
+    },
+    "c": {
+      "item": "minecraft:golden_shovel"
+    },
+    "s": {
+      "item": "minecraft:stick"
+    }
+  },
+  "pattern": [
+    "abc",
+    " s ",
+    " s "
+  ],
+  "result": {
+    "item": "bettertools:golden_paxel"
+  }
+}

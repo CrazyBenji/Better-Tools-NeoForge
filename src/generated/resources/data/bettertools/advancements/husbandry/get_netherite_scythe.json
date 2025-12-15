@@ -1,0 +1,40 @@
+{
+  "parent": "minecraft:husbandry/obtain_netherite_hoe",
+  "criteria": {
+    "got_netherite_scythe": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "bettertools:netherite_scythe"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancements.husbandry.get_netherite_scythe.description"
+    },
+    "frame": "challenge",
+    "hidden": true,
+    "icon": {
+      "item": "bettertools:netherite_scythe",
+      "nbt": "{Damage:0}"
+    },
+    "title": {
+      "translate": "advancements.husbandry.get_netherite_scythe.title"
+    }
+  },
+  "requirements": [
+    [
+      "got_netherite_scythe"
+    ]
+  ],
+  "rewards": {
+    "experience": 100
+  },
+  "sends_telemetry_event": true
+}

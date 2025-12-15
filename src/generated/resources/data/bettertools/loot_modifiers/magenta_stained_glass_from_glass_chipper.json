@@ -1,0 +1,18 @@
+{
+  "type": "bettertools:add_item",
+  "conditions": [
+    {
+      "block": "minecraft:magenta_stained_glass",
+      "condition": "minecraft:block_state_property"
+    },
+    {
+      "condition": "minecraft:match_tool",
+      "predicate": {
+        "items": [
+          "bettertools:glass_chipper"
+        ]
+      }
+    }
+  ],
+  "item": "minecraft:magenta_stained_glass"
+}

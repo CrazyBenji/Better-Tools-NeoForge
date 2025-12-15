@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "key": {
+    "b": {
+      "item": "minecraft:diamond_block"
+    },
+    "m": {
+      "item": "minecraft:diamond"
+    },
+    "s": {
+      "item": "minecraft:stick"
+    }
+  },
+  "pattern": [
+    "mbm",
+    "msm",
+    " s "
+  ],
+  "result": {
+    "item": "bettertools:diamond_hammer"
+  }
+}
