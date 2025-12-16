@@ -10,11 +10,9 @@ import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.InteractionResult;
+import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.item.DiggerItem;
-import net.minecraft.world.item.HoneycombItem;
-import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.Tier;
+import net.minecraft.world.item.*;
 import net.minecraft.world.item.context.UseOnContext;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.*;
@@ -26,30 +24,6 @@ import java.util.Map;
 import java.util.Optional;
 
 public class PaxelItem extends DiggerItem {
-    protected static final Map<Block, Block> STRIPPABLES = new Builder<Block, Block>()
-            .put(Blocks.OAK_WOOD, Blocks.STRIPPED_OAK_WOOD)
-            .put(Blocks.OAK_LOG, Blocks.STRIPPED_OAK_LOG)
-            .put(Blocks.DARK_OAK_WOOD, Blocks.STRIPPED_DARK_OAK_WOOD)
-            .put(Blocks.DARK_OAK_LOG, Blocks.STRIPPED_DARK_OAK_LOG)
-            .put(Blocks.ACACIA_WOOD, Blocks.STRIPPED_ACACIA_WOOD)
-            .put(Blocks.ACACIA_LOG, Blocks.STRIPPED_ACACIA_LOG)
-            .put(Blocks.CHERRY_WOOD, Blocks.STRIPPED_CHERRY_WOOD)
-            .put(Blocks.CHERRY_LOG, Blocks.STRIPPED_CHERRY_LOG)
-            .put(Blocks.BIRCH_WOOD, Blocks.STRIPPED_BIRCH_WOOD)
-            .put(Blocks.BIRCH_LOG, Blocks.STRIPPED_BIRCH_LOG)
-            .put(Blocks.JUNGLE_WOOD, Blocks.STRIPPED_JUNGLE_WOOD)
-            .put(Blocks.JUNGLE_LOG, Blocks.STRIPPED_JUNGLE_LOG)
-            .put(Blocks.SPRUCE_WOOD, Blocks.STRIPPED_SPRUCE_WOOD)
-            .put(Blocks.SPRUCE_LOG, Blocks.STRIPPED_SPRUCE_LOG)
-            .put(Blocks.WARPED_STEM, Blocks.STRIPPED_WARPED_STEM)
-            .put(Blocks.WARPED_HYPHAE, Blocks.STRIPPED_WARPED_HYPHAE)
-            .put(Blocks.CRIMSON_STEM, Blocks.STRIPPED_CRIMSON_STEM)
-            .put(Blocks.CRIMSON_HYPHAE, Blocks.STRIPPED_CRIMSON_HYPHAE)
-            .put(Blocks.MANGROVE_WOOD, Blocks.STRIPPED_MANGROVE_WOOD)
-            .put(Blocks.MANGROVE_LOG, Blocks.STRIPPED_MANGROVE_LOG)
-            .put(Blocks.BAMBOO_BLOCK, Blocks.STRIPPED_BAMBOO_BLOCK)
-            .build();
-
     protected static final Map<Block, BlockState> FLATTENABLES = new Builder<Block, BlockState>()
                     .put(Blocks.GRASS_BLOCK, Blocks.DIRT_PATH.defaultBlockState())
                     .put(Blocks.DIRT, Blocks.DIRT_PATH.defaultBlockState())
@@ -59,8 +33,8 @@ public class PaxelItem extends DiggerItem {
                     .put(Blocks.ROOTED_DIRT, Blocks.DIRT_PATH.defaultBlockState())
                     .build();
 
-    public PaxelItem(Tier material, float attackDamage, float attackSpeed, Properties settings) {
-        super(attackDamage, attackSpeed, material, BetterToolsTags.Blocks.PAXEL_MINEABLE, settings);
+    public PaxelItem(Tier tier, float attackDamageModifier, float attackSpeedModifier, Properties settings) {
+        super(tier, BetterToolsTags.Blocks.PAXEL_MINEABLE, settings.attributes(createAttributes(tier, attackDamageModifier, attackSpeedModifier)));
     }
 
     @Override
@@ -69,6 +43,7 @@ public class PaxelItem extends DiggerItem {
         BlockPos blockPos = context.getClickedPos();
         Player player = context.getPlayer();
         BlockState blockState = level.getBlockState(blockPos);
+        ItemStack stack = context.getItemInHand();
 
         // Axe Logic
         Optional<BlockState> optional = this.getStripped(blockState);
@@ -98,17 +73,16 @@ public class PaxelItem extends DiggerItem {
             level.setBlock(blockPos, optional4.get(), 11);
             level.gameEvent(GameEvent.BLOCK_CHANGE, blockPos, GameEvent.Context.of(player, optional4.get()));
             if (player != null) {
-                itemStack.hurtAndBreak(1, player, playerx -> playerx.broadcastBreakEvent(context.getHand()));
+                EquipmentSlot equipmentSlot = stack.equals(player.getItemBySlot(EquipmentSlot.OFFHAND)) ? EquipmentSlot.OFFHAND : EquipmentSlot.MAINHAND;
+                itemStack.hurtAndBreak(1, player, equipmentSlot);
             }
 
             return InteractionResult.sidedSuccess(level.isClientSide);
         }
 
         // Shovel Logic
-        if (context.getClickedFace() == Direction.DOWN) {
-            return InteractionResult.PASS;
-        } else {
-            BlockState blockState2 = FLATTENABLES.get(blockState.getBlock());
+        if (context.getClickedFace() != Direction.DOWN) {
+            BlockState blockState2 = getFlattened(blockState);
             BlockState blockState3 = null;
             if (blockState2 != null && level.getBlockState(blockPos.above()).isAir()) {
                 level.playSound(player, blockPos, SoundEvents.SHOVEL_FLATTEN, SoundSource.BLOCKS, 1.0F, 1.0F);
@@ -127,20 +101,22 @@ public class PaxelItem extends DiggerItem {
                     level.setBlock(blockPos, blockState3, 11);
                     level.gameEvent(GameEvent.BLOCK_CHANGE, blockPos, GameEvent.Context.of(player, blockState3));
                     if (player != null) {
-                        context.getItemInHand().hurtAndBreak(1, player, playerx -> playerx.broadcastBreakEvent(context.getHand()));
+                        EquipmentSlot equipmentSlot = stack.equals(player.getItemBySlot(EquipmentSlot.OFFHAND)) ? EquipmentSlot.OFFHAND : EquipmentSlot.MAINHAND;
+                        context.getItemInHand().hurtAndBreak(1, player, equipmentSlot);
                     }
                 }
 
                 return InteractionResult.sidedSuccess(level.isClientSide);
-            } else {
-                return InteractionResult.PASS;
             }
         }
-
+        return InteractionResult.PASS;
     }
 
     private Optional<BlockState> getStripped(BlockState unstrippedState) {
-        return Optional.ofNullable(STRIPPABLES.get(unstrippedState.getBlock()))
-                .map(block -> block.defaultBlockState().setValue(RotatedPillarBlock.AXIS, unstrippedState.getValue(RotatedPillarBlock.AXIS)));
+        return Optional.ofNullable(AxeItem.getAxeStrippingState(unstrippedState));
+    }
+
+    private BlockState getFlattened(BlockState unflattenedState) {
+        return ShovelItem.getShovelPathingState(unflattenedState);
     }
 }
