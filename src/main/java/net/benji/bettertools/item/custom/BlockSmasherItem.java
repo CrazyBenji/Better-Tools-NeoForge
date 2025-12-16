@@ -4,6 +4,7 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
+import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
@@ -35,7 +36,8 @@ public class BlockSmasherItem extends Item {
                 (clickedPos.getY() != 0 && clickedPos.getY() != -64)) {
             level.setBlock(clickedPos, this.replacement.get().defaultBlockState(), 3);
             assert player != null;
-            stack.hurtAndBreak(1, player, (player1) -> player1.broadcastBreakEvent(context.getHand()));
+            EquipmentSlot equipmentSlot = stack.equals(player.getItemBySlot(EquipmentSlot.OFFHAND)) ? EquipmentSlot.OFFHAND : EquipmentSlot.MAINHAND;
+            stack.hurtAndBreak(1, player, equipmentSlot);
             player.playSound(SoundEvents.GRAVEL_BREAK);
             if (player.getMainHandItem().getItem().equals(this)) {
                 player.swing(InteractionHand.MAIN_HAND);

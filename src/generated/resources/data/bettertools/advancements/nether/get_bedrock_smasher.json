@@ -5,9 +5,7 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "bettertools:bedrock_smasher"
-            ]
+            "items": "bettertools:bedrock_smasher"
           }
         ]
       },
@@ -21,8 +19,8 @@
     "frame": "challenge",
     "hidden": true,
     "icon": {
-      "item": "bettertools:bedrock_smasher",
-      "nbt": "{Damage:0}"
+      "count": 1,
+      "id": "bettertools:bedrock_smasher"
     },
     "title": {
       "translate": "advancements.nether.get_bedrock_smasher.title"

@@ -4,6 +4,7 @@ import net.benji.bettertools.BetterToolsNeoforge;
 import net.benji.bettertools.data.loot.AddItemModifier;
 import net.benji.bettertools.item.BetterToolsItems;
 import net.minecraft.advancements.critereon.ItemPredicate;
+import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
@@ -13,6 +14,7 @@ import net.minecraft.world.level.storage.loot.predicates.MatchTool;
 import net.neoforged.neoforge.common.data.GlobalLootModifierProvider;
 
 import java.util.List;
+import java.util.concurrent.CompletableFuture;
 
 public class BetterToolsGlobalLootModifierProvider extends GlobalLootModifierProvider {
     public static final List<Block> GLASS_BLOCKS = List.of(
@@ -52,8 +54,8 @@ public class BetterToolsGlobalLootModifierProvider extends GlobalLootModifierPro
             Blocks.PINK_STAINED_GLASS_PANE
     );
 
-    public BetterToolsGlobalLootModifierProvider(PackOutput output) {
-        super(output, BetterToolsNeoforge.MOD_ID);
+    public BetterToolsGlobalLootModifierProvider(PackOutput output, CompletableFuture<HolderLookup.Provider> registries) {
+        super(output, registries, BetterToolsNeoforge.MOD_ID);
     }
 
     @Override

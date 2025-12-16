@@ -7,7 +7,8 @@
     "item": "bettertools:diamond_hammer"
   },
   "result": {
-    "item": "bettertools:netherite_hammer"
+    "count": 1,
+    "id": "bettertools:netherite_hammer"
   },
   "template": {
     "item": "minecraft:netherite_upgrade_smithing_template"

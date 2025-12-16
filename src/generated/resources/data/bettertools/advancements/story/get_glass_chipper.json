@@ -5,9 +5,7 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "bettertools:glass_chipper"
-            ]
+            "items": "bettertools:glass_chipper"
           }
         ]
       },
@@ -19,8 +17,8 @@
       "translate": "advancements.story.get_glass_chipper.description"
     },
     "icon": {
-      "item": "bettertools:glass_chipper",
-      "nbt": "{Damage:0}"
+      "count": 1,
+      "id": "bettertools:glass_chipper"
     },
     "title": {
       "translate": "advancements.story.get_glass_chipper.title"

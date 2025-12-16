@@ -28,7 +28,7 @@ public class BetterToolsBlockTagProvider extends BlockTagsProvider {
                 .addTag(BlockTags.MINEABLE_WITH_SHOVEL);
 
         this.tag(BetterToolsTags.Blocks.GLASS_CHIPPER_MINEABLE)
-                .addTag(Tags.Blocks.GLASS)
+                .addTag(Tags.Blocks.GLASS_BLOCKS)
                 .addTag(Tags.Blocks.GLASS_PANES)
                 .add(Blocks.SEA_LANTERN)
                 .add(Blocks.GLOWSTONE)

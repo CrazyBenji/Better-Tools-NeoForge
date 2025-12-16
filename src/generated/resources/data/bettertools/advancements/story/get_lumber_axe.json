@@ -5,9 +5,7 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "bettertools:iron_lumber_axe"
-            ]
+            "items": "bettertools:iron_lumber_axe"
           }
         ]
       },
@@ -19,8 +17,8 @@
       "translate": "advancements.story.get_lumber_axe.description"
     },
     "icon": {
-      "item": "bettertools:iron_lumber_axe",
-      "nbt": "{Damage:0}"
+      "count": 1,
+      "id": "bettertools:iron_lumber_axe"
     },
     "title": {
       "translate": "advancements.story.get_lumber_axe.title"

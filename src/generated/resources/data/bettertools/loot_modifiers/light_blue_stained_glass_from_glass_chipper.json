@@ -8,9 +8,7 @@
     {
       "condition": "minecraft:match_tool",
       "predicate": {
-        "items": [
-          "bettertools:glass_chipper"
-        ]
+        "items": "bettertools:glass_chipper"
       }
     }
   ],

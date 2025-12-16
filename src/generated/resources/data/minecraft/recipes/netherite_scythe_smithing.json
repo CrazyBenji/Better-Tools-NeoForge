@@ -7,7 +7,8 @@
     "item": "bettertools:diamond_scythe"
   },
   "result": {
-    "item": "bettertools:netherite_scythe"
+    "count": 1,
+    "id": "bettertools:netherite_scythe"
   },
   "template": {
     "item": "minecraft:netherite_upgrade_smithing_template"

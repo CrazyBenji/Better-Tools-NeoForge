@@ -5,9 +5,7 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "bettertools:netherite_scythe"
-            ]
+            "items": "bettertools:netherite_scythe"
           }
         ]
       },
@@ -21,8 +19,8 @@
     "frame": "challenge",
     "hidden": true,
     "icon": {
-      "item": "bettertools:netherite_scythe",
-      "nbt": "{Damage:0}"
+      "count": 1,
+      "id": "bettertools:netherite_scythe"
     },
     "title": {
       "translate": "advancements.husbandry.get_netherite_scythe.title"

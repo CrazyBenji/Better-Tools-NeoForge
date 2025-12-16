@@ -3,6 +3,7 @@ package net.benji.bettertools.item.custom;
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.tags.BlockTags;
+import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.item.AxeItem;
 import net.minecraft.world.item.ItemStack;
@@ -17,10 +18,10 @@ import java.util.Set;
 
 public class LumberAxeItem extends AxeItem {
     private final int maxLogs;
-    private Set<BlockPos> toBreak;
+    private final Set<BlockPos> toBreak;
 
-    public LumberAxeItem(Tier tier, Properties properties, int maxLogs) {
-        super(tier, 6.0F, -3.2F, properties);
+    public LumberAxeItem(Tier tier, float attackDamageModifier, float attackSpeedModifier, Properties properties, int maxLogs) {
+        super(tier, properties.attributes(createAttributes(tier, attackDamageModifier, attackSpeedModifier)));
         this.maxLogs = maxLogs;
         this.toBreak = new HashSet<>();
     }
@@ -33,7 +34,8 @@ public class LumberAxeItem extends AxeItem {
             breakConnectedLogs(server, pos);
             for (BlockPos breakPos : toBreak) {
                 level.destroyBlock(breakPos, true);
-                stack.hurtAndBreak(1, player, (player1) -> player1.broadcastBreakEvent(player.getUsedItemHand()));
+                EquipmentSlot equipmentSlot = stack.equals(player.getItemBySlot(EquipmentSlot.OFFHAND)) ? EquipmentSlot.OFFHAND : EquipmentSlot.MAINHAND;
+                stack.hurtAndBreak(1, player, equipmentSlot);
             }
             this.toBreak.clear();
         }
