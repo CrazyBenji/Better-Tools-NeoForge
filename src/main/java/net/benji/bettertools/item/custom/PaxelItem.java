@@ -1,7 +1,6 @@
 package net.benji.bettertools.item.custom;
 
 import com.google.common.collect.BiMap;
-import com.google.common.collect.ImmutableMap.Builder;
 import net.benji.bettertools.util.BetterToolsTags;
 import net.minecraft.advancements.CriteriaTriggers;
 import net.minecraft.core.BlockPos;
@@ -20,19 +19,9 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.gameevent.GameEvent;
 import org.jetbrains.annotations.NotNull;
 
-import java.util.Map;
 import java.util.Optional;
 
 public class PaxelItem extends DiggerItem {
-    protected static final Map<Block, BlockState> FLATTENABLES = new Builder<Block, BlockState>()
-                    .put(Blocks.GRASS_BLOCK, Blocks.DIRT_PATH.defaultBlockState())
-                    .put(Blocks.DIRT, Blocks.DIRT_PATH.defaultBlockState())
-                    .put(Blocks.PODZOL, Blocks.DIRT_PATH.defaultBlockState())
-                    .put(Blocks.COARSE_DIRT, Blocks.DIRT_PATH.defaultBlockState())
-                    .put(Blocks.MYCELIUM, Blocks.DIRT_PATH.defaultBlockState())
-                    .put(Blocks.ROOTED_DIRT, Blocks.DIRT_PATH.defaultBlockState())
-                    .build();
-
     public PaxelItem(Tier tier, float attackDamageModifier, float attackSpeedModifier, Properties settings) {
         super(tier, BetterToolsTags.Blocks.PAXEL_MINEABLE, settings.attributes(createAttributes(tier, attackDamageModifier, attackSpeedModifier)));
     }
