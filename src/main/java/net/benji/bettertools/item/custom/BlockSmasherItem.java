@@ -63,8 +63,10 @@ public class BlockSmasherItem extends Item {
     public void appendHoverText(@NotNull ItemStack stack, @NotNull TooltipContext context, @NotNull List<Component> tooltipComponents, @NotNull TooltipFlag tooltipFlag) {
         super.appendHoverText(stack, context, tooltipComponents, tooltipFlag);
 
-        tooltipComponents.add(CommonComponents.EMPTY);
-        tooltipComponents.add(DESC_USE_ON);
-        tooltipComponents.add(CommonComponents.space().append(originalName));
+        if (tooltipFlag.isAdvanced()) {
+            tooltipComponents.add(CommonComponents.EMPTY);
+            tooltipComponents.add(DESC_USE_ON);
+            tooltipComponents.add(CommonComponents.space().append(originalName));
+        }
     }
 }

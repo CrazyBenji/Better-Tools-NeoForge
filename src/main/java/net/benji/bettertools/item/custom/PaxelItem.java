@@ -2,9 +2,12 @@ package net.benji.bettertools.item.custom;
 
 import com.google.common.collect.BiMap;
 import net.benji.bettertools.util.BetterToolsTags;
+import net.minecraft.ChatFormatting;
 import net.minecraft.advancements.CriteriaTriggers;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import net.minecraft.network.chat.CommonComponents;
+import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
@@ -19,9 +22,12 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.gameevent.GameEvent;
 import org.jetbrains.annotations.NotNull;
 
+import java.util.List;
 import java.util.Optional;
 
 public class PaxelItem extends DiggerItem {
+    public static final Component DESC = Component.translatable("desc.bettertools.paxel").withStyle(ChatFormatting.BLUE);
+
     public PaxelItem(Tier tier, float attackDamageModifier, float attackSpeedModifier, Properties settings) {
         super(tier, BetterToolsTags.Blocks.PAXEL_MINEABLE, settings.attributes(createAttributes(tier, attackDamageModifier, attackSpeedModifier)));
     }
@@ -107,5 +113,15 @@ public class PaxelItem extends DiggerItem {
 
     private BlockState getFlattened(BlockState unflattenedState) {
         return ShovelItem.getShovelPathingState(unflattenedState);
+    }
+
+    @Override
+    public void appendHoverText(@NotNull ItemStack stack, @NotNull TooltipContext context, @NotNull List<Component> tooltipComponents, @NotNull TooltipFlag tooltipFlag) {
+        super.appendHoverText(stack, context, tooltipComponents, tooltipFlag);
+
+        if (tooltipFlag.isAdvanced()) {
+            tooltipComponents.add(CommonComponents.EMPTY);
+            tooltipComponents.add(DESC);
+        }
     }
 }

@@ -1,7 +1,10 @@
 package net.benji.bettertools.item.custom;
 
 import com.mojang.datafixers.util.Pair;
+import net.minecraft.ChatFormatting;
 import net.minecraft.core.BlockPos;
+import net.minecraft.network.chat.CommonComponents;
+import net.minecraft.network.chat.Component;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.InteractionResult;
@@ -10,6 +13,7 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.HoeItem;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Tier;
+import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.item.context.UseOnContext;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.state.BlockState;
@@ -23,6 +27,7 @@ import java.util.function.Consumer;
 import java.util.function.Predicate;
 
 public class ScytheItem extends HoeItem {
+    public static final Component DESC = Component.translatable("desc.bettertools.scythe").withStyle(ChatFormatting.BLUE);
 
     public ScytheItem(Tier tier, float attackDamageModifier, float attackSpeedModifier, Properties properties) {
         super(tier, properties.attributes(createAttributes(tier, attackDamageModifier, attackSpeedModifier)));
@@ -83,5 +88,15 @@ public class ScytheItem extends HoeItem {
         }
 
         return positions;
+    }
+
+    @Override
+    public void appendHoverText(@NotNull ItemStack stack, @NotNull TooltipContext context, @NotNull List<Component> tooltipComponents, @NotNull TooltipFlag tooltipFlag) {
+        super.appendHoverText(stack, context, tooltipComponents, tooltipFlag);
+
+        if (tooltipFlag.isAdvanced()) {
+            tooltipComponents.add(CommonComponents.EMPTY);
+            tooltipComponents.add(DESC);
+        }
     }
 }

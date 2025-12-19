@@ -1,6 +1,9 @@
 package net.benji.bettertools.item.custom;
 
+import net.minecraft.ChatFormatting;
 import net.minecraft.core.BlockPos;
+import net.minecraft.network.chat.CommonComponents;
+import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.world.entity.EquipmentSlot;
@@ -8,6 +11,7 @@ import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.item.AxeItem;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Tier;
+import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.state.BlockState;
 import org.jetbrains.annotations.NotNull;
@@ -20,6 +24,8 @@ import java.util.Set;
 public class LumberAxeItem extends AxeItem {
     private final int maxLogs;
     private final Set<BlockPos> toBreak;
+
+    private static final Component DESC = Component.translatable("desc.bettertools.lumber_axe").withStyle(ChatFormatting.BLUE);
 
     public LumberAxeItem(Tier tier, float attackDamageModifier, float attackSpeedModifier, Properties properties, int maxLogs) {
         super(tier, properties.attributes(createAttributes(tier, attackDamageModifier, attackSpeedModifier)));
@@ -83,4 +89,13 @@ public class LumberAxeItem extends AxeItem {
         return list;
     }
 
+    @Override
+    public void appendHoverText(@NotNull ItemStack stack, @NotNull TooltipContext context, @NotNull List<Component> tooltipComponents, @NotNull TooltipFlag tooltipFlag) {
+        super.appendHoverText(stack, context, tooltipComponents, tooltipFlag);
+
+        if (tooltipFlag.isAdvanced()) {
+            tooltipComponents.add(CommonComponents.EMPTY);
+            tooltipComponents.add(DESC);
+        }
+    }
 }
