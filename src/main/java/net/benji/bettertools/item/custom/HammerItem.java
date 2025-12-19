@@ -29,7 +29,7 @@ public class HammerItem extends PickaxeItem {
     @Override
     public boolean mineBlock(@NotNull ItemStack stack, Level level, @NotNull BlockState state, @NotNull BlockPos pos, @NotNull LivingEntity player) {
         if (!level.isClientSide && level instanceof ServerLevel) {
-            BlockHitResult hitResult = player.level().clip(new ClipContext(player.getEyePosition(1F),
+            BlockHitResult hitResult = level.clip(new ClipContext(player.getEyePosition(1F),
                     (player.getEyePosition(1f).add(player.getViewVector(1F).scale(6F))),
                     ClipContext.Block.COLLIDER, ClipContext.Fluid.NONE, player));
             Direction hitSide = hitResult.getDirection();

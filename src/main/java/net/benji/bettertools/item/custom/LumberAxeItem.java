@@ -14,6 +14,7 @@ import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 public class LumberAxeItem extends AxeItem {
@@ -47,7 +48,7 @@ public class LumberAxeItem extends AxeItem {
         if (this.toBreak.size() >= maxLogs) {
             return;
         }
-        ArrayList<BlockPos> toCheck = populateArrayList(startPos);
+        List<BlockPos> toCheck = populateArrayList(startPos);
 
         for (BlockPos pos : toCheck) {
             if (!this.toBreak.contains(pos) && level.getBlockState(pos).is(BlockTags.LOGS)) {
@@ -57,8 +58,9 @@ public class LumberAxeItem extends AxeItem {
         }
     }
 
-    private ArrayList<BlockPos> populateArrayList(BlockPos pos) {
-        ArrayList<BlockPos> list = new ArrayList<>();
+    private List<BlockPos> populateArrayList(BlockPos pos) {
+        List<BlockPos> list = new ArrayList<>();
+
         list.add(pos.east());
         list.add(pos.east().north());
         list.add(pos.west());

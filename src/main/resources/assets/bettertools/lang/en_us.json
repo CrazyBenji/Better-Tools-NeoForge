@@ -41,5 +41,7 @@
   "advancements.nether.get_bedrock_smasher.title": "Breaking Through",
   "advancements.nether.get_bedrock_smasher.description": "Acquire a tool capable of breaking the hardest material",
   "advancements.story.get_lumber_axe.title": "Lumberjack",
-  "advancements.story.get_lumber_axe.description": "Acquire a Lumber Axe"
+  "advancements.story.get_lumber_axe.description": "Acquire a Lumber Axe",
+
+  "desc.bettertools.block_smasher": "Use on:"
 }
