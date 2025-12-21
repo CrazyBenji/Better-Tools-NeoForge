@@ -1,38 +1,45 @@
 package net.benji.bettertools.item.custom;
 
+import com.mojang.datafixers.util.Pair;
+import net.minecraft.ChatFormatting;
 import net.minecraft.core.BlockPos;
+import net.minecraft.network.chat.CommonComponents;
+import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerLevel;
-import net.minecraft.sounds.SoundEvents;
-import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.HoeItem;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Tier;
+import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.item.context.UseOnContext;
 import net.minecraft.world.level.Level;
-import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.phys.BlockHitResult;
+import net.neoforged.neoforge.common.ToolActions;
 import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.function.Consumer;
+import java.util.function.Predicate;
 
 public class ScytheItem extends HoeItem {
+    public static final Component DESC = Component.translatable("desc.bettertools.scythe").withStyle(ChatFormatting.BLUE);
 
     public ScytheItem(Tier material, int attackDamage, float attackSpeed, Properties settings) {
         super(material, attackDamage, attackSpeed, settings);
     }
 
     @Override
-    public @NotNull InteractionResult useOn(UseOnContext context) {
-        Level world = context.getLevel();
-        BlockPos pos = context.getClickedPos();
-        Player player = context.getPlayer();
-        ItemStack stack = context.getItemInHand();
+    public @NotNull InteractionResult useOn(UseOnContext useOnContext) {
+        Level level = useOnContext.getLevel();
+        BlockPos pos = useOnContext.getClickedPos();
+        Player player = useOnContext.getPlayer();
+        ItemStack itemStack = useOnContext.getItemInHand();
 
-        if (!world.isClientSide && world instanceof ServerLevel) {
+        if (!level.isClientSide && level instanceof ServerLevel) {
             // Get all positions in 3x3 area around the clicked position
             List<BlockPos> positionsToHoe = get3x3Positions(pos);
 
@@ -40,17 +47,17 @@ public class ScytheItem extends HoeItem {
 
             // Attempt to hoe each block in the area
             for (BlockPos targetPos : positionsToHoe) {
-                if (canHoeBlock(world, targetPos)) {
-                    BlockState currentState = world.getBlockState(targetPos);
-                    BlockState hoedState = getHoedState(currentState);
-
-                    if (hoedState != null && world.getBlockState(targetPos.above()).isAir()) {
-                        // Set the hoed block state
-                        world.setBlock(targetPos, hoedState, 11);
-
-                        // Play hoe sound
-                        world.playSound(null, targetPos, SoundEvents.HOE_TILL,
-                                SoundSource.BLOCKS, 1.0F, 1.0F);
+                UseOnContext context = new UseOnContext(level, player, useOnContext.getHand(), itemStack,
+                        new BlockHitResult(useOnContext.getClickLocation(), useOnContext.getClickedFace(), targetPos, useOnContext.isInside()));
+                BlockState toolModifiedState = level.getBlockState(targetPos).getToolModifiedState(context, ToolActions.HOE_TILL, false);
+                Pair<Predicate<UseOnContext>, Consumer<UseOnContext>> pair = toolModifiedState == null ? null : Pair.of((Predicate<UseOnContext>)(ctx) -> true, changeIntoState(toolModifiedState));
+                if (pair != null) {
+                    Predicate<UseOnContext> predicate = pair.getFirst();
+                    Consumer<UseOnContext> consumer = pair.getSecond();
+                    if (predicate.test(context)) {
+                        if (!level.isClientSide()) {
+                            consumer.accept(context);
+                        }
 
                         anyBlockHoed = true;
                     }
@@ -60,13 +67,13 @@ public class ScytheItem extends HoeItem {
             if (anyBlockHoed) {
                 // Damage the tool once for the original block
                 assert player != null;
-                stack.hurtAndBreak(1, player, (p) -> p.broadcastBreakEvent(context.getHand()));
+                itemStack.hurtAndBreak(1, player, (p) -> p.broadcastBreakEvent(useOnContext.getHand()));
                 return InteractionResult.SUCCESS;
             }
         }
 
         // Fall back to default hoe behavior if no custom hoeing happened
-        return super.useOn(context);
+        return super.useOn(useOnContext);
     }
 
     private List<BlockPos> get3x3Positions(BlockPos center) {
@@ -82,32 +89,13 @@ public class ScytheItem extends HoeItem {
         return positions;
     }
 
-    private boolean canHoeBlock(Level world, BlockPos pos) {
-        BlockState state = world.getBlockState(pos);
-        Block block = state.getBlock();
+    @Override
+    public void appendHoverText(@NotNull ItemStack stack, @Nullable Level level, @NotNull List<Component> tooltipComponents, @NotNull TooltipFlag tooltipFlag) {
+        super.appendHoverText(stack, level, tooltipComponents, tooltipFlag);
 
-        // Check if the block can be hoed (dirt, grass, coarse dirt, etc.)
-        return block == Blocks.DIRT ||
-                block == Blocks.GRASS_BLOCK ||
-                block == Blocks.COARSE_DIRT ||
-                block == Blocks.PODZOL ||
-                block == Blocks.MYCELIUM ||
-                block == Blocks.ROOTED_DIRT;
-    }
-
-    private BlockState getHoedState(BlockState currentState) {
-        Block currentBlock = currentState.getBlock();
-
-        // Convert blocks to their hoed equivalents
-        if (currentBlock == Blocks.DIRT ||
-                currentBlock == Blocks.GRASS_BLOCK ||
-                currentBlock == Blocks.COARSE_DIRT ||
-                currentBlock == Blocks.PODZOL ||
-                currentBlock == Blocks.MYCELIUM ||
-                currentBlock == Blocks.ROOTED_DIRT) {
-            return Blocks.FARMLAND.defaultBlockState();
+        if (tooltipFlag.isAdvanced()) {
+            tooltipComponents.add(CommonComponents.EMPTY);
+            tooltipComponents.add(DESC);
         }
-
-        return null; // Block cannot be hoed
     }
 }
