@@ -18,7 +18,7 @@ import net.minecraft.world.item.context.UseOnContext;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.BlockHitResult;
-import net.neoforged.neoforge.common.ToolActions;
+import net.neoforged.neoforge.common.ItemAbilities;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
@@ -49,7 +49,7 @@ public class ScytheItem extends HoeItem {
         for (BlockPos targetPos : positionsToHoe) {
             UseOnContext context = new UseOnContext(level, player, useOnContext.getHand(), itemStack,
                     new BlockHitResult(useOnContext.getClickLocation(), useOnContext.getClickedFace(), targetPos, useOnContext.isInside()));
-            BlockState toolModifiedState = level.getBlockState(targetPos).getToolModifiedState(context, ToolActions.HOE_TILL, false);
+            BlockState toolModifiedState = level.getBlockState(targetPos).getToolModifiedState(context, ItemAbilities.HOE_TILL, false);
             Pair<Predicate<UseOnContext>, Consumer<UseOnContext>> pair = toolModifiedState == null ? null : Pair.of((Predicate<UseOnContext>)(ctx) -> true, changeIntoState(toolModifiedState));
             if (pair != null) {
                 Predicate<UseOnContext> predicate = pair.getFirst();

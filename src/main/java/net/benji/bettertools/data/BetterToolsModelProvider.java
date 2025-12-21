@@ -43,6 +43,6 @@ public class BetterToolsModelProvider extends ItemModelProvider {
     private void handheldItem(DeferredItem<?> item) {
         withExistingParent(item.getId().getPath(),
                 mcLoc("item/handheld")).texture("layer0",
-                new ResourceLocation(BetterToolsNeoforge.MOD_ID, "item/" + item.getId().getPath()));
+                ResourceLocation.fromNamespaceAndPath(BetterToolsNeoforge.MOD_ID, "item/" + item.getId().getPath()));
     }
 }

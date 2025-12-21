@@ -1,4 +1,4 @@
-// 1.20.6	2025-12-15T20:03:55.0925535	Global Loot Modifiers : bettertools
+// 1.21	2025-12-21T12:42:05.1708034	Global Loot Modifiers : bettertools
 15a1cfb0fe842ba61d7f25eed536d296a601285b data/bettertools/loot_modifiers/black_stained_glass_from_glass_chipper.json
 3ff488e89a63b3a0e8ca245daa925978530eb865 data/bettertools/loot_modifiers/black_stained_glass_pane_from_glass_chipper.json
 0a2c258e2474d0b5d5193b9030d19c82c64b3cd7 data/bettertools/loot_modifiers/blue_stained_glass_from_glass_chipper.json
@@ -35,4 +35,4 @@ bf579143f7443af0ea9784b6100adfb28f840aed data/bettertools/loot_modifiers/white_s
 056a6dbfc6f8102b295eb869848ee66896b355cd data/bettertools/loot_modifiers/white_stained_glass_pane_from_glass_chipper.json
 b18d120b6270fcb42e969e490056993ee82f2ad1 data/bettertools/loot_modifiers/yellow_stained_glass_from_glass_chipper.json
 eeea25be535f3ff4f90e3635c3ff1b18a54ee3da data/bettertools/loot_modifiers/yellow_stained_glass_pane_from_glass_chipper.json
-e80afeb92f7a95beb8e6c758a5a4c36add5c8a93 data/neoforge/loot_modifiers/global_loot_modifiers.json
+1b13251c067e53f1306c430ba940abf27ee704b0 data/neoforge/loot_modifiers/global_loot_modifiers.json

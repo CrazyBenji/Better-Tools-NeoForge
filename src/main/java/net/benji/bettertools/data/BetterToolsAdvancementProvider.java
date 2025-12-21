@@ -26,7 +26,7 @@ public class BetterToolsAdvancementProvider extends AdvancementProvider {
 
     public static class BetterToolsAdvancementGenerator implements AdvancementGenerator {
         public AdvancementHolder getAdvancement(String id) {
-            return Advancement.Builder.advancement().build(new ResourceLocation("minecraft", id));
+            return Advancement.Builder.advancement().build(ResourceLocation.withDefaultNamespace(id));
         }
 
         @Override

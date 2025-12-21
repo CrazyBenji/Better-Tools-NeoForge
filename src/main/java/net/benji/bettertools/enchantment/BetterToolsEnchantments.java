@@ -1,36 +1,40 @@
 package net.benji.bettertools.enchantment;
 
 import net.benji.bettertools.BetterToolsNeoforge;
-import net.benji.bettertools.enchantment.custom.ReapingEnchantment;
 import net.benji.bettertools.util.BetterToolsTags;
 import net.minecraft.core.registries.Registries;
-import net.minecraft.world.entity.EquipmentSlot;
+import net.minecraft.data.worldgen.BootstrapContext;
+import net.minecraft.resources.ResourceKey;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.tags.EnchantmentTags;
+import net.minecraft.world.entity.EquipmentSlotGroup;
 import net.minecraft.world.item.enchantment.Enchantment;
-import net.neoforged.bus.api.IEventBus;
-import net.neoforged.neoforge.registries.DeferredRegister;
-
-import java.util.function.Supplier;
+import net.minecraft.world.item.enchantment.EnchantmentEffectComponents;
+import net.minecraft.world.item.enchantment.LevelBasedValue;
+import net.minecraft.world.item.enchantment.effects.AddValue;
 
 public class BetterToolsEnchantments {
-    public static final DeferredRegister<Enchantment> ENCHANTMENTS = DeferredRegister.create(Registries.ENCHANTMENT, BetterToolsNeoforge.MOD_ID);
+    public static final ResourceKey<Enchantment> REAPING =
+            ResourceKey.create(Registries.ENCHANTMENT, ResourceLocation.fromNamespaceAndPath(BetterToolsNeoforge.MOD_ID, "reaping"));
 
-    public static final Supplier<Enchantment> REAPING = ENCHANTMENTS.register(
-            "reaping",
-            () -> new ReapingEnchantment(
-                    Enchantment.definition(
-                            BetterToolsTags.Items.SCYTHES,
-                            5,
-                            4,
-                            Enchantment.dynamicCost(10, 8),
-                            Enchantment.dynamicCost(18, 8),
-                            1,
-                            EquipmentSlot.MAINHAND
-                    )
-            )
-    );
+    public static void bootstrap(BootstrapContext<Enchantment> registerable) {
+        var enchantments = registerable.lookup(Registries.ENCHANTMENT);
+        var items = registerable.lookup(Registries.ITEM);
 
-    public static void registerEnchantment(IEventBus modEventBus) {
-        BetterToolsNeoforge.LOGGER.info("Registering enchantments for " + BetterToolsNeoforge.MOD_ID);
-        ENCHANTMENTS.register(modEventBus);
+        register(registerable, REAPING, Enchantment.enchantment(Enchantment.definition(
+                        items.getOrThrow(BetterToolsTags.Items.SCYTHES),
+                        5,
+                        4,
+                        Enchantment.dynamicCost(10, 8),
+                        Enchantment.dynamicCost(18, 8),
+                        1,
+                        EquipmentSlotGroup.MAINHAND))
+                .exclusiveWith(enchantments.getOrThrow(EnchantmentTags.DAMAGE_EXCLUSIVE))
+                .withEffect(EnchantmentEffectComponents.DAMAGE, new AddValue(LevelBasedValue.perLevel(1.5f))));
+
+    }
+
+    private static void register(BootstrapContext<Enchantment> registry, ResourceKey<Enchantment> key, Enchantment.Builder builder) {
+        registry.register(key, builder.build(key.location()));
     }
 }

@@ -13,7 +13,7 @@ public class BetterToolsTags {
         public static final TagKey<Block> GLASS_CHIPPER_MINEABLE = createTag("mineable/glass_chipper");
 
         private static TagKey<Block> createTag(String name) {
-            return TagKey.create(Registries.BLOCK, new ResourceLocation(BetterToolsNeoforge.MOD_ID, name));
+            return TagKey.create(Registries.BLOCK, ResourceLocation.fromNamespaceAndPath(BetterToolsNeoforge.MOD_ID, name));
         }
     }
 
@@ -25,7 +25,7 @@ public class BetterToolsTags {
         public static final TagKey<Item> LUMBER_AXES = createTag("lumber_axes");
 
         private static TagKey<Item> createTag(String name) {
-            return TagKey.create(Registries.ITEM, new ResourceLocation(BetterToolsNeoforge.MOD_ID, name));
+            return TagKey.create(Registries.ITEM, ResourceLocation.fromNamespaceAndPath(BetterToolsNeoforge.MOD_ID, name));
         }
     }
 }
