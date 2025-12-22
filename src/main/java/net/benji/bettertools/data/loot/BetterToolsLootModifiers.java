@@ -16,7 +16,8 @@ public class BetterToolsLootModifiers {
     public static final Supplier<MapCodec<? extends IGlobalLootModifier>> ADD_ITEM =
             LOOT_MODIFIER_SERIALIZERS.register("add_item", () -> AddItemModifier.CODEC);
 
-    public static void register(IEventBus eventBus) {
+    public static void registerLootModifiers(IEventBus eventBus) {
+        BetterToolsNeoforge.LOGGER.info("Registering loot modifiers for " + BetterToolsNeoforge.MOD_ID);
         LOOT_MODIFIER_SERIALIZERS.register(eventBus);
     }
 }

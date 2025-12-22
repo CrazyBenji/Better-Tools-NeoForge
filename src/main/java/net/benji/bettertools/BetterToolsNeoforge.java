@@ -17,7 +17,6 @@ import net.neoforged.bus.api.IEventBus;
 import net.neoforged.fml.common.Mod;
 import net.neoforged.fml.event.lifecycle.FMLCommonSetupEvent;
 
-
 @Mod(BetterToolsNeoforge.MOD_ID)
 public class BetterToolsNeoforge {
 
@@ -30,7 +29,7 @@ public class BetterToolsNeoforge {
         BetterToolsBlocks.registerBlocks(modEventBus);
         BetterToolsItems.registerItems(modEventBus);
         BetterToolsCreativeModeTabs.registerCreativeModeTabs(modEventBus);
-        BetterToolsLootModifiers.register(modEventBus);
+        BetterToolsLootModifiers.registerLootModifiers(modEventBus);
 
         modEventBus.register(BetterToolsDataGenerator.class);
     }
