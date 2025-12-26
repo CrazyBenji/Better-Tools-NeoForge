@@ -10,7 +10,7 @@ import net.neoforged.neoforge.data.event.GatherDataEvent;
 
 import java.util.concurrent.CompletableFuture;
 
-@EventBusSubscriber(modid = BetterToolsNeoforge.MOD_ID, bus = EventBusSubscriber.Bus.MOD)
+@EventBusSubscriber(modid = BetterToolsNeoforge.MOD_ID)
 public class BetterToolsDataGenerator {
     @SubscribeEvent
     public static void gatherClientData(GatherDataEvent.Client event) {
