@@ -1,4 +1,4 @@
-// 1.21.4	2025-12-25T21:09:14.8679739	BetterToolsRecipeProvider
+// 1.21.5	2025-12-25T22:03:41.5277661	BetterToolsRecipeProvider
 0e2523a67ae3df7f126e32547f40a985e48aa090 data/bettertools/advancement/recipes/tools/bedrock_smasher.json
 1a934112e6de18b57490eb8418aa35065c833a02 data/bettertools/advancement/recipes/tools/diamond_hammer.json
 3c674a85ee367fa0dfa8006c2e1f9e1c7f7c9c5d data/bettertools/advancement/recipes/tools/diamond_lumber_axe.json
@@ -31,7 +31,7 @@ f79c157e9eb2c078c3a241ea78f58921a1c916f1 data/bettertools/recipe/golden_scythe.j
 fc1d84b6984d6ca8fa03227d885f60110506d27f data/minecraft/advancement/recipes/tools/netherite_lumber_axe_smithing.json
 aa20df5c1b562142b085bf9dd81117222c3a7417 data/minecraft/advancement/recipes/tools/netherite_paxel_smithing.json
 c7af45ccc0fef376ec2629a4f84e8c98e6e83f62 data/minecraft/advancement/recipes/tools/netherite_scythe_smithing.json
-52d79a69756b1d618af8928a54ce30a3044a2257 data/minecraft/recipe/netherite_hammer_smithing.json
-e5b9e789fd645474cc8cd8c330b3416f590bdaa1 data/minecraft/recipe/netherite_lumber_axe_smithing.json
-25c30d44a6e1616772746c5913b054e2cb2312a2 data/minecraft/recipe/netherite_paxel_smithing.json
-7d78a2ab605b3c0e46b81a4f3c58f1bdfa8740d8 data/minecraft/recipe/netherite_scythe_smithing.json
+d4767933432e0daca0bc0c7237428d05f2a62c48 data/minecraft/recipe/netherite_hammer_smithing.json
+b2c25b0b546662b5ec2e395cc1ac7ddc330cc461 data/minecraft/recipe/netherite_lumber_axe_smithing.json
+f0f0e7b6215123a444b5913120102dc9ce9773d7 data/minecraft/recipe/netherite_paxel_smithing.json
+a54a7ee81f37f750cf6afe82613eec65a8ab3b57 data/minecraft/recipe/netherite_scythe_smithing.json

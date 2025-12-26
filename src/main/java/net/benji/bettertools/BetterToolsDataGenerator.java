@@ -31,5 +31,24 @@ public class BetterToolsDataGenerator {
         generator.addProvider(true, new BetterToolsRegistryDataGenerator(packOutput, lookupProvider));
     }
 
+    @SubscribeEvent
+    public static void gatherServerData(GatherDataEvent.Server event) {
+        DataGenerator generator = event.getGenerator();
+        PackOutput packOutput = generator.getPackOutput();
+        CompletableFuture<HolderLookup.Provider> lookupProvider = event.getLookupProvider();
+
+        generator.addProvider(true, new BetterToolsRecipeProvider.RecipeProviderRunner(packOutput, lookupProvider));
+        generator.addProvider(true, new BetterToolsGlobalLootModifierProvider(packOutput, lookupProvider));
+        generator.addProvider(true, new BetterToolsAdvancementProvider(packOutput, lookupProvider));
+
+        BetterToolsBlockTagProvider blockTagGenerator = generator.addProvider(true,
+                new BetterToolsBlockTagProvider(packOutput, lookupProvider));
+        generator.addProvider(true, new BetterToolsItemTagProvider(packOutput, lookupProvider, blockTagGenerator.contentsGetter()));
+
+        generator.addProvider(true, new BetterToolsModelProvider(packOutput));
+
+        generator.addProvider(true, new BetterToolsRegistryDataGenerator(packOutput, lookupProvider));
+    }
+
 
 }

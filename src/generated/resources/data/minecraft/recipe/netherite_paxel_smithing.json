@@ -3,7 +3,6 @@
   "addition": "#minecraft:netherite_tool_materials",
   "base": "bettertools:diamond_paxel",
   "result": {
-    "count": 1,
     "id": "bettertools:netherite_paxel"
   },
   "template": "minecraft:netherite_upgrade_smithing_template"

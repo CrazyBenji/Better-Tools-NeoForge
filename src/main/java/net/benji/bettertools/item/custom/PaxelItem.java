@@ -14,6 +14,7 @@ import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.*;
+import net.minecraft.world.item.component.TooltipDisplay;
 import net.minecraft.world.item.context.UseOnContext;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.*;
@@ -22,14 +23,14 @@ import net.minecraft.world.level.gameevent.GameEvent;
 import net.neoforged.neoforge.common.ItemAbilities;
 import org.jetbrains.annotations.NotNull;
 
-import java.util.List;
 import java.util.Optional;
+import java.util.function.Consumer;
 
-public class PaxelItem extends DiggerItem {
+public class PaxelItem extends Item {
     public static final Component DESC = Component.translatable("desc.bettertools.paxel").withStyle(ChatFormatting.BLUE);
 
     public PaxelItem(ToolMaterial toolMaterial, float attackDamageModifier, float attackSpeedModifier, Properties properties) {
-        super(toolMaterial, BetterToolsTags.Blocks.PAXEL_MINEABLE, attackDamageModifier, attackSpeedModifier, properties);
+        super(properties.tool(toolMaterial, BetterToolsTags.Blocks.PAXEL_MINEABLE, attackDamageModifier, attackSpeedModifier, 0));
     }
 
     @Override
@@ -115,12 +116,12 @@ public class PaxelItem extends DiggerItem {
     }
 
     @Override
-    public void appendHoverText(@NotNull ItemStack stack, @NotNull TooltipContext context, @NotNull List<Component> tooltipComponents, @NotNull TooltipFlag tooltipFlag) {
-        super.appendHoverText(stack, context, tooltipComponents, tooltipFlag);
+    public void appendHoverText(@NotNull ItemStack stack, @NotNull TooltipContext context, @NotNull TooltipDisplay tooltipDisplay, @NotNull Consumer<Component> tooltipAdder, @NotNull TooltipFlag flag) {
+        super.appendHoverText(stack, context, tooltipDisplay, tooltipAdder, flag);
 
-        if (tooltipFlag.isAdvanced()) {
-            tooltipComponents.add(CommonComponents.EMPTY);
-            tooltipComponents.add(DESC);
+        if (flag.isAdvanced()) {
+            tooltipAdder.accept(CommonComponents.EMPTY);
+            tooltipAdder.accept(DESC);
         }
     }
 }

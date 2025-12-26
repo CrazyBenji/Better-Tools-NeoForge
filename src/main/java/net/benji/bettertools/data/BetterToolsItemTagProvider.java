@@ -4,14 +4,14 @@ import net.benji.bettertools.item.BetterToolsItems;
 import net.benji.bettertools.util.BetterToolsTags;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
-import net.minecraft.data.tags.ItemTagsProvider;
+import net.minecraft.data.tags.VanillaItemTagsProvider;
 import net.minecraft.tags.ItemTags;
 import net.minecraft.world.level.block.Block;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.concurrent.CompletableFuture;
 
-public class BetterToolsItemTagProvider extends ItemTagsProvider {
+public class BetterToolsItemTagProvider extends VanillaItemTagsProvider {
     public BetterToolsItemTagProvider(PackOutput output, CompletableFuture<HolderLookup.Provider> lookupProvider, CompletableFuture<TagLookup<Block>> blockTags) {
         super(output, lookupProvider, blockTags);
     }
