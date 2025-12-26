@@ -16,7 +16,7 @@ public class BetterToolsBlocks {
 
     public static final DeferredBlock<Block> SMASHED_BEDROCK = BLOCKS.registerSimpleBlock(
             "smashed_bedrock",
-            BlockBehaviour.Properties.ofFullCopy(Blocks.OBSIDIAN)
+            properties -> BlockBehaviour.Properties.ofFullCopy(Blocks.OBSIDIAN)
     );
     public static final DeferredItem<BlockItem> SMASHED_BEDROCK_BLOCK_ITEM = BetterToolsItems.ITEMS.registerSimpleBlockItem(SMASHED_BEDROCK);
 
