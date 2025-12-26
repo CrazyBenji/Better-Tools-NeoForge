@@ -20,7 +20,7 @@ public class BetterToolsDataGenerator {
         ExistingFileHelper existingFileHelper = event.getExistingFileHelper();
         CompletableFuture<HolderLookup.Provider> lookupProvider = event.getLookupProvider();
 
-        generator.addProvider(event.includeServer(), new BetterToolsRecipeProvider(packOutput, lookupProvider));
+        generator.addProvider(event.includeServer(), new BetterToolsRecipeProvider.RecipeProviderRunner(packOutput, lookupProvider));
         generator.addProvider(event.includeServer(), new BetterToolsGlobalLootModifierProvider(packOutput, lookupProvider));
         generator.addProvider(event.includeServer(), new BetterToolsAdvancementProvider(packOutput, lookupProvider, existingFileHelper));
 

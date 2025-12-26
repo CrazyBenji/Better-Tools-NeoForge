@@ -5,6 +5,7 @@ import net.benji.bettertools.data.loot.AddItemModifier;
 import net.benji.bettertools.item.BetterToolsItems;
 import net.minecraft.advancements.critereon.ItemPredicate;
 import net.minecraft.core.HolderLookup;
+import net.minecraft.core.registries.Registries;
 import net.minecraft.data.PackOutput;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
@@ -72,7 +73,7 @@ public class BetterToolsGlobalLootModifierProvider extends GlobalLootModifierPro
                 new AddItemModifier(
                         new LootItemCondition[]{
                                 LootItemBlockStatePropertyCondition.hasBlockStateProperties(block).build(),
-                                MatchTool.toolMatches(ItemPredicate.Builder.item().of(BetterToolsItems.GLASS_CHIPPER.get())).build()
+                                MatchTool.toolMatches(ItemPredicate.Builder.item().of(this.registries.lookupOrThrow(Registries.ITEM), BetterToolsItems.GLASS_CHIPPER.get())).build()
                         },
                         block.asItem()
                 ));

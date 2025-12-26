@@ -2,15 +2,9 @@
   "type": "minecraft:crafting_shaped",
   "category": "equipment",
   "key": {
-    "i": {
-      "item": "minecraft:netherite_ingot"
-    },
-    "n": {
-      "item": "minecraft:nether_star"
-    },
-    "s": {
-      "item": "minecraft:stick"
-    }
+    "i": "minecraft:netherite_ingot",
+    "n": "minecraft:nether_star",
+    "s": "minecraft:stick"
   },
   "pattern": [
     "ini",

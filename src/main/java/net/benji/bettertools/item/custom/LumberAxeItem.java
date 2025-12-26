@@ -10,7 +10,7 @@ import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.item.AxeItem;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.Tier;
+import net.minecraft.world.item.ToolMaterial;
 import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.state.BlockState;
@@ -27,8 +27,8 @@ public class LumberAxeItem extends AxeItem {
 
     private static final Component DESC = Component.translatable("desc.bettertools.lumber_axe").withStyle(ChatFormatting.BLUE);
 
-    public LumberAxeItem(Tier tier, float attackDamageModifier, float attackSpeedModifier, Properties properties, int maxLogs) {
-        super(tier, properties.attributes(createAttributes(tier, attackDamageModifier, attackSpeedModifier)));
+    public LumberAxeItem(ToolMaterial toolMaterial, float attackDamageModifier, float attackSpeedModifier, Properties properties, int maxLogs) {
+        super(toolMaterial, attackDamageModifier, attackSpeedModifier, properties);
         this.maxLogs = maxLogs;
         this.toBreak = new HashSet<>();
     }

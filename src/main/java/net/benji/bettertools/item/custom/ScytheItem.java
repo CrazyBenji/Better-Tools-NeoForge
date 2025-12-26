@@ -12,7 +12,7 @@ import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.HoeItem;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.Tier;
+import net.minecraft.world.item.ToolMaterial;
 import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.item.context.UseOnContext;
 import net.minecraft.world.level.Level;
@@ -29,8 +29,8 @@ import java.util.function.Predicate;
 public class ScytheItem extends HoeItem {
     public static final Component DESC = Component.translatable("desc.bettertools.scythe").withStyle(ChatFormatting.BLUE);
 
-    public ScytheItem(Tier tier, float attackDamageModifier, float attackSpeedModifier, Properties properties) {
-        super(tier, properties.attributes(createAttributes(tier, attackDamageModifier, attackSpeedModifier)));
+    public ScytheItem(ToolMaterial toolMaterial, float attackDamageModifier, float attackSpeedModifier, Properties properties) {
+        super(toolMaterial, attackDamageModifier, attackSpeedModifier, properties);
     }
 
     @Override

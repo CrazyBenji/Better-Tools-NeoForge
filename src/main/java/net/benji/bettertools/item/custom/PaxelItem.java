@@ -1,6 +1,5 @@
 package net.benji.bettertools.item.custom;
 
-import com.google.common.collect.BiMap;
 import net.benji.bettertools.util.BetterToolsTags;
 import net.minecraft.ChatFormatting;
 import net.minecraft.advancements.CriteriaTriggers;
@@ -20,6 +19,7 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.gameevent.GameEvent;
+import net.neoforged.neoforge.common.ItemAbilities;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.List;
@@ -28,8 +28,8 @@ import java.util.Optional;
 public class PaxelItem extends DiggerItem {
     public static final Component DESC = Component.translatable("desc.bettertools.paxel").withStyle(ChatFormatting.BLUE);
 
-    public PaxelItem(Tier tier, float attackDamageModifier, float attackSpeedModifier, Properties settings) {
-        super(tier, BetterToolsTags.Blocks.PAXEL_MINEABLE, settings.attributes(createAttributes(tier, attackDamageModifier, attackSpeedModifier)));
+    public PaxelItem(ToolMaterial toolMaterial, float attackDamageModifier, float attackSpeedModifier, Properties properties) {
+        super(toolMaterial, BetterToolsTags.Blocks.PAXEL_MINEABLE, attackDamageModifier, attackSpeedModifier, properties);
     }
 
     @Override
@@ -42,9 +42,8 @@ public class PaxelItem extends DiggerItem {
 
         // Axe Logic
         Optional<BlockState> optional = this.getStripped(blockState);
-        Optional<BlockState> optional2 = WeatheringCopper.getPrevious(blockState);
-        Optional<BlockState> optional3 = Optional.ofNullable((Block)((BiMap<?, ?>)HoneycombItem.WAX_OFF_BY_BLOCK.get()).get(blockState.getBlock()))
-                .map(block -> block.withPropertiesOf(blockState));
+        Optional<BlockState> optional2 = Optional.ofNullable(blockState.getToolModifiedState(context, ItemAbilities.AXE_SCRAPE, false));
+        Optional<BlockState> optional3 = Optional.ofNullable(blockState.getToolModifiedState(context, ItemAbilities.AXE_WAX_OFF, false));
         ItemStack itemStack = context.getItemInHand();
         Optional<BlockState> optional4 = Optional.empty();
         if (optional.isPresent()) {
@@ -72,7 +71,7 @@ public class PaxelItem extends DiggerItem {
                 itemStack.hurtAndBreak(1, player, equipmentSlot);
             }
 
-            return InteractionResult.sidedSuccess(level.isClientSide);
+            return InteractionResult.SUCCESS;
         }
 
         // Shovel Logic
@@ -101,7 +100,7 @@ public class PaxelItem extends DiggerItem {
                     }
                 }
 
-                return InteractionResult.sidedSuccess(level.isClientSide);
+                return InteractionResult.SUCCESS;
             }
         }
         return InteractionResult.PASS;
