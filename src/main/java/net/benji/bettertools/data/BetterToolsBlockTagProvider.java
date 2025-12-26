@@ -35,4 +35,9 @@ public class BetterToolsBlockTagProvider extends BlockTagsProvider {
         this.tag(BlockTags.MINEABLE_WITH_PICKAXE)
                 .add(BetterToolsBlocks.SMASHED_BEDROCK.get());
     }
+
+    @Override
+    public @NotNull String getName() {
+        return "BetterToolsBlockTagProvider";
+    }
 }

@@ -13,6 +13,7 @@ import net.minecraft.world.level.storage.loot.predicates.LootItemBlockStatePrope
 import net.minecraft.world.level.storage.loot.predicates.LootItemCondition;
 import net.minecraft.world.level.storage.loot.predicates.MatchTool;
 import net.neoforged.neoforge.common.data.GlobalLootModifierProvider;
+import org.jetbrains.annotations.NotNull;
 
 import java.util.List;
 import java.util.concurrent.CompletableFuture;
@@ -77,5 +78,10 @@ public class BetterToolsGlobalLootModifierProvider extends GlobalLootModifierPro
                         },
                         block.asItem()
                 ));
+    }
+
+    @Override
+    public @NotNull String getName() {
+        return "BetterToolsGlobalLootModifierProvider";
     }
 }

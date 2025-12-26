@@ -68,4 +68,9 @@ public class BetterToolsItemTagProvider extends VanillaItemTagsProvider {
         this.tag(ItemTags.SHARP_WEAPON_ENCHANTABLE)
                 .addTag(BetterToolsTags.Items.LUMBER_AXES);
     }
+
+    @Override
+    public @NotNull String getName() {
+        return "BetterToolsItemTagProvider";
+    }
 }

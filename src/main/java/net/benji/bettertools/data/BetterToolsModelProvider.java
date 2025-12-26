@@ -43,4 +43,9 @@ public class BetterToolsModelProvider extends ModelProvider {
 
         blockModels.createTrivialCube(BetterToolsBlocks.SMASHED_BEDROCK.get());
     }
+
+    @Override
+    public @NotNull String getName() {
+        return "BetterToolsModelProvider";
+    }
 }
