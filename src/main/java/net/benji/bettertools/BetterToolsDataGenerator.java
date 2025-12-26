@@ -10,7 +10,7 @@ import net.neoforged.neoforge.data.event.GatherDataEvent;
 
 import java.util.concurrent.CompletableFuture;
 
-@EventBusSubscriber(modid = BetterToolsNeoforge.MOD_ID)
+@EventBusSubscriber(modid = BetterToolsNeoforge.MOD_ID, bus = EventBusSubscriber.Bus.MOD)
 public class BetterToolsDataGenerator {
     @SubscribeEvent
     public static void gatherClientData(GatherDataEvent.Client event) {
@@ -22,9 +22,8 @@ public class BetterToolsDataGenerator {
         generator.addProvider(true, new BetterToolsGlobalLootModifierProvider(packOutput, lookupProvider));
         generator.addProvider(true, new BetterToolsAdvancementProvider(packOutput, lookupProvider));
 
-        BetterToolsBlockTagProvider blockTagGenerator = generator.addProvider(true,
-                new BetterToolsBlockTagProvider(packOutput, lookupProvider));
-        generator.addProvider(true, new BetterToolsItemTagProvider(packOutput, lookupProvider, blockTagGenerator.contentsGetter()));
+        generator.addProvider(true, new BetterToolsBlockTagProvider(packOutput, lookupProvider));
+        generator.addProvider(true, new BetterToolsItemTagProvider(packOutput, lookupProvider));
 
         generator.addProvider(true, new BetterToolsModelProvider(packOutput));
 
@@ -41,14 +40,12 @@ public class BetterToolsDataGenerator {
         generator.addProvider(true, new BetterToolsGlobalLootModifierProvider(packOutput, lookupProvider));
         generator.addProvider(true, new BetterToolsAdvancementProvider(packOutput, lookupProvider));
 
-        BetterToolsBlockTagProvider blockTagGenerator = generator.addProvider(true,
-                new BetterToolsBlockTagProvider(packOutput, lookupProvider));
-        generator.addProvider(true, new BetterToolsItemTagProvider(packOutput, lookupProvider, blockTagGenerator.contentsGetter()));
+        generator.addProvider(true, new BetterToolsBlockTagProvider(packOutput, lookupProvider));
+        generator.addProvider(true, new BetterToolsItemTagProvider(packOutput, lookupProvider));
 
         generator.addProvider(true, new BetterToolsModelProvider(packOutput));
 
         generator.addProvider(true, new BetterToolsRegistryDataGenerator(packOutput, lookupProvider));
     }
-
 
 }

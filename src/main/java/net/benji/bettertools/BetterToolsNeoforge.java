@@ -44,7 +44,7 @@ public class BetterToolsNeoforge {
 
     }
 
-    @EventBusSubscriber(modid = MOD_ID, value = Dist.CLIENT)
+    @EventBusSubscriber(modid = MOD_ID, bus = EventBusSubscriber.Bus.MOD, value = Dist.CLIENT)
     public static class ClientModEvents {
         @SubscribeEvent
         public static void onClientSetup(FMLClientSetupEvent event) {
