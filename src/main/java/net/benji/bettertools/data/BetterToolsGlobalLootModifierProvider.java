@@ -3,7 +3,7 @@ package net.benji.bettertools.data;
 import net.benji.bettertools.BetterToolsNeoforge;
 import net.benji.bettertools.data.loot.AddItemModifier;
 import net.benji.bettertools.item.BetterToolsItems;
-import net.minecraft.advancements.critereon.ItemPredicate;
+import net.minecraft.advancements.criterion.ItemPredicate;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.data.PackOutput;

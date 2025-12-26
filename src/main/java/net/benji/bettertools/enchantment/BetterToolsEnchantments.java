@@ -5,7 +5,7 @@ import net.benji.bettertools.util.BetterToolsTags;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.data.worldgen.BootstrapContext;
 import net.minecraft.resources.ResourceKey;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.tags.EnchantmentTags;
 import net.minecraft.world.entity.EquipmentSlotGroup;
 import net.minecraft.world.item.enchantment.Enchantment;
@@ -15,7 +15,7 @@ import net.minecraft.world.item.enchantment.effects.AddValue;
 
 public class BetterToolsEnchantments {
     public static final ResourceKey<Enchantment> REAPING =
-            ResourceKey.create(Registries.ENCHANTMENT, ResourceLocation.fromNamespaceAndPath(BetterToolsNeoforge.MOD_ID, "reaping"));
+            ResourceKey.create(Registries.ENCHANTMENT, Identifier.fromNamespaceAndPath(BetterToolsNeoforge.MOD_ID, "reaping"));
 
     public static void bootstrap(BootstrapContext<Enchantment> registerable) {
         var enchantments = registerable.lookup(Registries.ENCHANTMENT);
@@ -35,6 +35,6 @@ public class BetterToolsEnchantments {
     }
 
     private static void register(BootstrapContext<Enchantment> registry, ResourceKey<Enchantment> key, Enchantment.Builder builder) {
-        registry.register(key, builder.build(key.location()));
+        registry.register(key, builder.build(key.identifier()));
     }
 }
