@@ -8,12 +8,11 @@ import net.minecraft.data.recipes.RecipeOutput;
 import net.minecraft.data.recipes.RecipeProvider;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
-import net.neoforged.neoforge.common.conditions.IConditionBuilder;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.concurrent.CompletableFuture;
 
-public class BetterToolsRecipeProvider extends RecipeProvider implements IConditionBuilder {
+public class BetterToolsRecipeProvider extends RecipeProvider {
     public BetterToolsRecipeProvider(HolderLookup.Provider registryLookup, RecipeOutput output) {
         super(registryLookup, output);
     }

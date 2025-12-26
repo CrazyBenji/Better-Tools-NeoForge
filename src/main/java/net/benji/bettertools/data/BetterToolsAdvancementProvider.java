@@ -9,10 +9,10 @@ import net.minecraft.advancements.AdvancementType;
 import net.minecraft.advancements.critereon.InventoryChangeTrigger;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
+import net.minecraft.data.advancements.AdvancementProvider;
+import net.minecraft.data.advancements.AdvancementSubProvider;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
-import net.neoforged.neoforge.common.data.AdvancementProvider;
-import net.neoforged.neoforge.common.data.ExistingFileHelper;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.List;
@@ -20,17 +20,17 @@ import java.util.concurrent.CompletableFuture;
 import java.util.function.Consumer;
 
 public class BetterToolsAdvancementProvider extends AdvancementProvider {
-    public BetterToolsAdvancementProvider(PackOutput output, CompletableFuture<HolderLookup.Provider> registries, ExistingFileHelper existingFileHelper) {
-        super(output, registries, existingFileHelper, List.of(new BetterToolsAdvancementGenerator()));
+    public BetterToolsAdvancementProvider(PackOutput output, CompletableFuture<HolderLookup.Provider> registries) {
+        super(output, registries, List.of(new BetterToolsAdvancementGenerator()));
     }
 
-    public static class BetterToolsAdvancementGenerator implements AdvancementGenerator {
+    public static class BetterToolsAdvancementGenerator implements AdvancementSubProvider {
         public AdvancementHolder getAdvancement(String id) {
             return Advancement.Builder.advancement().build(ResourceLocation.withDefaultNamespace(id));
         }
 
         @Override
-        public void generate(HolderLookup.@NotNull Provider provider, @NotNull Consumer<AdvancementHolder> consumer, @NotNull ExistingFileHelper existingFileHelper) {
+        public void generate(HolderLookup.@NotNull Provider provider, @NotNull Consumer<AdvancementHolder> consumer) {
             AdvancementHolder getHammer = Advancement.Builder.advancement()
                     .parent(getAdvancement("story/iron_tools"))
                     .display(
