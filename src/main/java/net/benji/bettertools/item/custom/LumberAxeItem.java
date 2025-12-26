@@ -38,7 +38,7 @@ public class LumberAxeItem extends AxeItem {
     @Override
     public boolean mineBlock(@NotNull ItemStack stack, Level level, @NotNull BlockState state, @NotNull BlockPos pos, @NotNull LivingEntity player) {
 
-        if (!level.isClientSide && level instanceof ServerLevel server && state.is(BlockTags.LOGS)) {
+        if (!level.isClientSide() && level instanceof ServerLevel server && state.is(BlockTags.LOGS)) {
 
             breakConnectedLogs(server, pos);
             for (BlockPos breakPos : toBreak) {

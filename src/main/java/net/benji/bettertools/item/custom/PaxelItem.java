@@ -92,7 +92,7 @@ public class PaxelItem extends Item {
             }
 
             if (blockState3 != null) {
-                if (!level.isClientSide) {
+                if (!level.isClientSide()) {
                     level.setBlock(blockPos, blockState3, 11);
                     level.gameEvent(GameEvent.BLOCK_CHANGE, blockPos, GameEvent.Context.of(player, blockState3));
                     if (player != null) {
