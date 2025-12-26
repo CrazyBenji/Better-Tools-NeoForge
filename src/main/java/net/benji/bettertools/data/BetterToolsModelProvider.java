@@ -17,21 +17,25 @@ public class BetterToolsModelProvider extends ModelProvider {
 
     @Override
     protected void registerModels(@NotNull BlockModelGenerators blockModels, @NotNull ItemModelGenerators itemModels) {
+        itemModels.generateFlatItem(BetterToolsItems.COPPER_HAMMER.get(), ModelTemplates.FLAT_HANDHELD_ITEM);
         itemModels.generateFlatItem(BetterToolsItems.IRON_HAMMER.get(), ModelTemplates.FLAT_HANDHELD_ITEM);
         itemModels.generateFlatItem(BetterToolsItems.GOLDEN_HAMMER.get(), ModelTemplates.FLAT_HANDHELD_ITEM);
         itemModels.generateFlatItem(BetterToolsItems.DIAMOND_HAMMER.get(), ModelTemplates.FLAT_HANDHELD_ITEM);
         itemModels.generateFlatItem(BetterToolsItems.NETHERITE_HAMMER.get(), ModelTemplates.FLAT_HANDHELD_ITEM);
 
+        itemModels.generateFlatItem(BetterToolsItems.COPPER_PAXEL.get(), ModelTemplates.FLAT_HANDHELD_ITEM);
         itemModels.generateFlatItem(BetterToolsItems.IRON_PAXEL.get(), ModelTemplates.FLAT_HANDHELD_ITEM);
         itemModels.generateFlatItem(BetterToolsItems.GOLDEN_PAXEL.get(), ModelTemplates.FLAT_HANDHELD_ITEM);
         itemModels.generateFlatItem(BetterToolsItems.DIAMOND_PAXEL.get(), ModelTemplates.FLAT_HANDHELD_ITEM);
         itemModels.generateFlatItem(BetterToolsItems.NETHERITE_PAXEL.get(), ModelTemplates.FLAT_HANDHELD_ITEM);
 
+        itemModels.generateFlatItem(BetterToolsItems.COPPER_SCYTHE.get(), ModelTemplates.FLAT_HANDHELD_ITEM);
         itemModels.generateFlatItem(BetterToolsItems.IRON_SCYTHE.get(), ModelTemplates.FLAT_HANDHELD_ITEM);
         itemModels.generateFlatItem(BetterToolsItems.GOLDEN_SCYTHE.get(), ModelTemplates.FLAT_HANDHELD_ITEM);
         itemModels.generateFlatItem(BetterToolsItems.DIAMOND_SCYTHE.get(), ModelTemplates.FLAT_HANDHELD_ITEM);
         itemModels.generateFlatItem(BetterToolsItems.NETHERITE_SCYTHE.get(), ModelTemplates.FLAT_HANDHELD_ITEM);
 
+        itemModels.generateFlatItem(BetterToolsItems.COPPER_LUMBER_AXE.get(), ModelTemplates.FLAT_HANDHELD_ITEM);
         itemModels.generateFlatItem(BetterToolsItems.IRON_LUMBER_AXE.get(), ModelTemplates.FLAT_HANDHELD_ITEM);
         itemModels.generateFlatItem(BetterToolsItems.GOLDEN_LUMBER_AXE.get(), ModelTemplates.FLAT_HANDHELD_ITEM);
         itemModels.generateFlatItem(BetterToolsItems.DIAMOND_LUMBER_AXE.get(), ModelTemplates.FLAT_HANDHELD_ITEM);

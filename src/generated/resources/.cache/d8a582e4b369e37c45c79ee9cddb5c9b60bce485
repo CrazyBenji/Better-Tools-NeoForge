@@ -1,6 +1,10 @@
-// 1.21.11	2025-12-26T16:36:42.9700373	BetterToolsModelProvider
+// 1.21.11	2025-12-26T17:31:40.1936539	BetterToolsModelProvider
 3d7c32e0a1992c540b72535bf4c0bd010336c5f4 assets/bettertools/blockstates/smashed_bedrock.json
 e3816972c3b5bd46e874fa66c39a90eafdc14fca assets/bettertools/items/bedrock_smasher.json
+c627102fb501ab8cfc56f3ca68c50fc4c33633e9 assets/bettertools/items/copper_hammer.json
+87ea9d088adad4b58c8fda4b3e820224d1938f35 assets/bettertools/items/copper_lumber_axe.json
+d1811a0918ec9ae8b4470a6c84f8985a764aa136 assets/bettertools/items/copper_paxel.json
+e99beb4c307c38687401dd3873eacb495b4da1b6 assets/bettertools/items/copper_scythe.json
 563363da94be35fbb449c43f29cc7048f2facf21 assets/bettertools/items/diamond_hammer.json
 7353af23b71104035048dbf7725ea703f9864db5 assets/bettertools/items/diamond_lumber_axe.json
 62b9d4dcfb940a9c7e72488576abdb06da904a2b assets/bettertools/items/diamond_paxel.json
@@ -21,6 +25,10 @@ ffc5d326a6752adb09798fb01a4aa09569721475 assets/bettertools/items/iron_scythe.js
 94f9ff7ef37508a8c789a1aac06953f7f371eaed assets/bettertools/items/smashed_bedrock.json
 a37d3f30d31cb875908827ff228ed3638aa3f701 assets/bettertools/models/block/smashed_bedrock.json
 487b9ca49687d528ff3994f09825bf8aa8f0e73f assets/bettertools/models/item/bedrock_smasher.json
+8cd2ba8027dad5c7ce1c3d93755328231cec168e assets/bettertools/models/item/copper_hammer.json
+d5fb08abd35ec56f25c2bed9bbdad149e44083ae assets/bettertools/models/item/copper_lumber_axe.json
+7cfc044219172d095d8ee45496aec20b581da104 assets/bettertools/models/item/copper_paxel.json
+e85826b51f3d45350705c10314895641b56a8ca9 assets/bettertools/models/item/copper_scythe.json
 a77d12f73c8fc755642c05a25775cd4d46bff550 assets/bettertools/models/item/diamond_hammer.json
 7c88af7726575d26da299b2c46229b2579286c78 assets/bettertools/models/item/diamond_lumber_axe.json
 4c1ec7455049e39099e9e7e3c09d7298c903ed6c assets/bettertools/models/item/diamond_paxel.json

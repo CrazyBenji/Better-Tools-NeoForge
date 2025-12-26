@@ -1,5 +1,9 @@
-// 1.21.11	2025-12-26T16:36:42.9730376	BetterToolsRecipeProvider
+// 1.21.11	2025-12-26T17:31:40.1976559	BetterToolsRecipeProvider
 0e2523a67ae3df7f126e32547f40a985e48aa090 data/bettertools/advancement/recipes/tools/bedrock_smasher.json
+4eb3565887d27702ce342d0bb633070868992173 data/bettertools/advancement/recipes/tools/copper_hammer.json
+3c456fb61dde067f68ce3e3acaee9963b207466e data/bettertools/advancement/recipes/tools/copper_lumber_axe.json
+226357f9c893d4221634996ffbf1db6139b87c68 data/bettertools/advancement/recipes/tools/copper_paxel.json
+12d293e428eafe6a3c9bef51a8691ea71d576db4 data/bettertools/advancement/recipes/tools/copper_scythe.json
 1a934112e6de18b57490eb8418aa35065c833a02 data/bettertools/advancement/recipes/tools/diamond_hammer.json
 3c674a85ee367fa0dfa8006c2e1f9e1c7f7c9c5d data/bettertools/advancement/recipes/tools/diamond_lumber_axe.json
 97221767b0f49c3dbd210b4f42d5944e636697f6 data/bettertools/advancement/recipes/tools/diamond_paxel.json
@@ -14,6 +18,10 @@ b45b9dacb9ef7c245f5e12990cd58056ca106db4 data/bettertools/advancement/recipes/to
 5bc39f15c88b4d3d5de115698addc8c66a45ad34 data/bettertools/advancement/recipes/tools/iron_paxel.json
 482aa6e947fb272a87b1fdda936e669dc35c9fce data/bettertools/advancement/recipes/tools/iron_scythe.json
 d810cb4f90612c1870cc5da33b454a8f955791ca data/bettertools/recipe/bedrock_smasher.json
+60f94d6e5697fee3019afc8a06a1691e85568c0c data/bettertools/recipe/copper_hammer.json
+5d2a86f8401d086c53b62e04e3398e62380054d6 data/bettertools/recipe/copper_lumber_axe.json
+580c42c394a5a306afe86981cfc1b5ca1776d141 data/bettertools/recipe/copper_paxel.json
+43c40820537cadd3b877854e2a346d45f4005ee1 data/bettertools/recipe/copper_scythe.json
 e9f9d699cbe6768d8fa09670a43ea7afb4cd245d data/bettertools/recipe/diamond_hammer.json
 6ab690c457a6a6b089b663a64b301a8a024ff48e data/bettertools/recipe/diamond_lumber_axe.json
 7b9937deb3ee096bfcefcaf284aef3beeab4c383 data/bettertools/recipe/diamond_paxel.json

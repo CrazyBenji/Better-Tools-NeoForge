@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "key": {
+    "a": "minecraft:copper_pickaxe",
+    "b": "minecraft:copper_axe",
+    "c": "minecraft:copper_shovel",
+    "s": "minecraft:stick"
+  },
+  "pattern": [
+    "abc",
+    " s ",
+    " s "
+  ],
+  "result": {
+    "count": 1,
+    "id": "bettertools:copper_paxel"
+  }
+}
