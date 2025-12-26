@@ -18,18 +18,21 @@ public class BetterToolsItemTagProvider extends VanillaItemTagsProvider {
     @Override
     protected void addTags(HolderLookup.@NotNull Provider provider) {
         this.tag(BetterToolsTags.Items.HAMMERS)
+                .add(BetterToolsItems.COPPER_HAMMER.get())
                 .add(BetterToolsItems.IRON_HAMMER.get())
                 .add(BetterToolsItems.GOLDEN_HAMMER.get())
                 .add(BetterToolsItems.DIAMOND_HAMMER.get())
                 .add(BetterToolsItems.NETHERITE_HAMMER.get());
 
         this.tag(BetterToolsTags.Items.PAXELS)
+                .add(BetterToolsItems.COPPER_PAXEL.get())
                 .add(BetterToolsItems.IRON_PAXEL.get())
                 .add(BetterToolsItems.GOLDEN_PAXEL.get())
                 .add(BetterToolsItems.DIAMOND_PAXEL.get())
                 .add(BetterToolsItems.NETHERITE_PAXEL.get());
 
         this.tag(BetterToolsTags.Items.SCYTHES)
+                .add(BetterToolsItems.COPPER_SCYTHE.get())
                 .add(BetterToolsItems.IRON_SCYTHE.get())
                 .add(BetterToolsItems.GOLDEN_SCYTHE.get())
                 .add(BetterToolsItems.DIAMOND_SCYTHE.get())
@@ -39,6 +42,7 @@ public class BetterToolsItemTagProvider extends VanillaItemTagsProvider {
                 .add(BetterToolsItems.GLASS_CHIPPER.get());
 
         this.tag(BetterToolsTags.Items.LUMBER_AXES)
+                .add(BetterToolsItems.COPPER_LUMBER_AXE.get())
                 .add(BetterToolsItems.IRON_LUMBER_AXE.get())
                 .add(BetterToolsItems.GOLDEN_LUMBER_AXE.get())
                 .add(BetterToolsItems.DIAMOND_LUMBER_AXE.get())

@@ -13,6 +13,11 @@ import net.neoforged.neoforge.registries.DeferredRegister;
 public class BetterToolsItems {
     public static final DeferredRegister.Items ITEMS = DeferredRegister.createItems(BetterToolsNeoforge.MOD_ID);
 
+    public static final DeferredItem<Item> COPPER_HAMMER = ITEMS.registerItem(
+            "copper_hammer",
+            properties -> new HammerItem(ToolMaterial.COPPER, 1.0f, -2.8f, properties),
+            new Item.Properties()
+    );
     public static final DeferredItem<Item> IRON_HAMMER = ITEMS.registerItem(
             "iron_hammer",
             properties -> new HammerItem(ToolMaterial.IRON, 1.0f, -2.8f, properties),
@@ -34,6 +39,11 @@ public class BetterToolsItems {
             new Item.Properties()
     );
 
+    public static final DeferredItem<Item> COPPER_PAXEL = ITEMS.registerItem(
+            "copper_paxel",
+            properties -> new PaxelItem(ToolMaterial.COPPER, 2.0f, -2.8f, properties),
+            new Item.Properties()
+    );
     public static final DeferredItem<Item> IRON_PAXEL = ITEMS.registerItem(
             "iron_paxel",
             properties -> new PaxelItem(ToolMaterial.IRON, 2.0f, -2.8f, properties),
@@ -55,6 +65,11 @@ public class BetterToolsItems {
             new Item.Properties()
     );
 
+    public static final DeferredItem<Item> COPPER_SCYTHE = ITEMS.registerItem(
+            "copper_scythe",
+            properties -> new ScytheItem(ToolMaterial.COPPER, 3.0f, -3.2f, properties),
+            new Item.Properties()
+    );
     public static final DeferredItem<Item> IRON_SCYTHE = ITEMS.registerItem(
             "iron_scythe",
             properties -> new ScytheItem(ToolMaterial.IRON, 3.0f, -3.2f, properties),
@@ -76,6 +91,11 @@ public class BetterToolsItems {
             new Item.Properties()
     );
 
+    public static final DeferredItem<Item> COPPER_LUMBER_AXE = ITEMS.registerItem(
+            "copper_lumber_axe",
+            properties -> new LumberAxeItem(ToolMaterial.COPPER, 6.0f, -3.2f, properties, 32),
+            new Item.Properties()
+    );
     public static final DeferredItem<Item> IRON_LUMBER_AXE = ITEMS.registerItem(
             "iron_lumber_axe",
             properties -> new LumberAxeItem(ToolMaterial.IRON, 6.0f, -3.2f, properties, 32),

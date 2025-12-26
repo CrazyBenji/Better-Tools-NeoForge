@@ -1,14 +1,17 @@
 {
+  "item.bettertools.copper_hammer": "Copper Hammer",
   "item.bettertools.iron_hammer": "Iron Hammer",
   "item.bettertools.golden_hammer": "Golden Hammer",
   "item.bettertools.diamond_hammer": "Diamond Hammer",
   "item.bettertools.netherite_hammer": "Netherite Hammer",
 
+  "item.bettertools.copper_paxel": "Copper Paxel",
   "item.bettertools.iron_paxel": "Iron Paxel",
   "item.bettertools.golden_paxel": "Golden Paxel",
   "item.bettertools.diamond_paxel": "Diamond Paxel",
   "item.bettertools.netherite_paxel": "Netherite Paxel",
 
+  "item.bettertools.copper_scythe": "Copper Scythe",
   "item.bettertools.iron_scythe": "Iron Scythe",
   "item.bettertools.golden_scythe": "Golden Scythe",
   "item.bettertools.diamond_scythe": "Diamond Scythe",
@@ -17,6 +20,7 @@
   "item.bettertools.glass_chipper": "Glass Chipper",
   "item.bettertools.bedrock_smasher": "Bedrock Smasher",
 
+  "item.bettertools.copper_lumber_axe": "Copper Lumber Axe",
   "item.bettertools.iron_lumber_axe": "Iron Lumber Axe",
   "item.bettertools.golden_lumber_axe": "Golden Lumber Axe",
   "item.bettertools.diamond_lumber_axe": "Diamond Lumber Axe",

@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "key": {
+    "b": "minecraft:copper_block",
+    "i": "minecraft:copper_ingot",
+    "s": "minecraft:stick"
+  },
+  "pattern": [
+    "ib",
+    "is",
+    " s"
+  ],
+  "result": {
+    "count": 1,
+    "id": "bettertools:copper_lumber_axe"
+  }
+}

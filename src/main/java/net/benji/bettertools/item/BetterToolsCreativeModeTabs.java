@@ -17,21 +17,25 @@ public class BetterToolsCreativeModeTabs {
             .withTabsBefore(CreativeModeTabs.COMBAT)
             .icon(() -> BetterToolsItems.IRON_HAMMER.get().getDefaultInstance())
             .displayItems((parameters, output) -> {
+                output.accept(BetterToolsItems.COPPER_HAMMER.get());
                 output.accept(BetterToolsItems.IRON_HAMMER.get());
                 output.accept(BetterToolsItems.GOLDEN_HAMMER.get());
                 output.accept(BetterToolsItems.DIAMOND_HAMMER.get());
                 output.accept(BetterToolsItems.NETHERITE_HAMMER.get());
 
+                output.accept(BetterToolsItems.COPPER_PAXEL.get());
                 output.accept(BetterToolsItems.IRON_PAXEL.get());
                 output.accept(BetterToolsItems.GOLDEN_PAXEL.get());
                 output.accept(BetterToolsItems.DIAMOND_PAXEL.get());
                 output.accept(BetterToolsItems.NETHERITE_PAXEL.get());
 
+                output.accept(BetterToolsItems.COPPER_SCYTHE.get());
                 output.accept(BetterToolsItems.IRON_SCYTHE.get());
                 output.accept(BetterToolsItems.GOLDEN_SCYTHE.get());
                 output.accept(BetterToolsItems.DIAMOND_SCYTHE.get());
                 output.accept(BetterToolsItems.NETHERITE_SCYTHE.get());
 
+                output.accept(BetterToolsItems.COPPER_LUMBER_AXE.get());
                 output.accept(BetterToolsItems.IRON_LUMBER_AXE.get());
                 output.accept(BetterToolsItems.GOLDEN_LUMBER_AXE.get());
                 output.accept(BetterToolsItems.DIAMOND_LUMBER_AXE.get());

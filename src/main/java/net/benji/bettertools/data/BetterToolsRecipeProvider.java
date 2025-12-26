@@ -35,21 +35,25 @@ public class BetterToolsRecipeProvider extends RecipeProvider {
 
     @Override
     protected void buildRecipes() {
+        generateHammerRecipe(output, Items.COPPER_INGOT, Items.COPPER_BLOCK, BetterToolsItems.COPPER_HAMMER.get());
         generateHammerRecipe(output, Items.IRON_INGOT, Items.IRON_BLOCK, BetterToolsItems.IRON_HAMMER.get());
         generateHammerRecipe(output, Items.GOLD_INGOT, Items.GOLD_BLOCK, BetterToolsItems.GOLDEN_HAMMER.get());
         generateHammerRecipe(output, Items.DIAMOND, Items.DIAMOND_BLOCK, BetterToolsItems.DIAMOND_HAMMER.get());
         netheriteSmithing(BetterToolsItems.DIAMOND_HAMMER.get(), RecipeCategory.TOOLS, BetterToolsItems.NETHERITE_HAMMER.get());
 
+        generateSickleRecipe(output, Items.COPPER_INGOT, BetterToolsItems.COPPER_SCYTHE.get());
         generateSickleRecipe(output, Items.IRON_INGOT, BetterToolsItems.IRON_SCYTHE.get());
         generateSickleRecipe(output, Items.GOLD_INGOT, BetterToolsItems.GOLDEN_SCYTHE.get());
         generateSickleRecipe(output, Items.DIAMOND, BetterToolsItems.DIAMOND_SCYTHE.get());
         netheriteSmithing(BetterToolsItems.DIAMOND_SCYTHE.get(), RecipeCategory.TOOLS, BetterToolsItems.NETHERITE_SCYTHE.get());
 
+        generatePaxelRecipe(output, Items.COPPER_PICKAXE, Items.COPPER_AXE, Items.COPPER_SHOVEL, BetterToolsItems.COPPER_PAXEL.get());
         generatePaxelRecipe(output, Items.IRON_PICKAXE, Items.IRON_AXE, Items.IRON_SHOVEL, BetterToolsItems.IRON_PAXEL.get());
         generatePaxelRecipe(output, Items.GOLDEN_PICKAXE, Items.GOLDEN_AXE, Items.GOLDEN_SHOVEL, BetterToolsItems.GOLDEN_PAXEL.get());
         generatePaxelRecipe(output, Items.DIAMOND_PICKAXE, Items.DIAMOND_AXE, Items.DIAMOND_SHOVEL, BetterToolsItems.DIAMOND_PAXEL.get());
         netheriteSmithing(BetterToolsItems.DIAMOND_PAXEL.get(), RecipeCategory.TOOLS, BetterToolsItems.NETHERITE_PAXEL.get());
 
+        generateLumberAxeRecipe(output, Items.COPPER_INGOT, Items.COPPER_BLOCK, BetterToolsItems.COPPER_LUMBER_AXE.get());
         generateLumberAxeRecipe(output, Items.IRON_INGOT, Items.IRON_BLOCK, BetterToolsItems.IRON_LUMBER_AXE.get());
         generateLumberAxeRecipe(output, Items.GOLD_INGOT, Items.GOLD_BLOCK, BetterToolsItems.GOLDEN_LUMBER_AXE.get());
         generateLumberAxeRecipe(output, Items.DIAMOND, Items.DIAMOND_BLOCK, BetterToolsItems.DIAMOND_LUMBER_AXE.get());
