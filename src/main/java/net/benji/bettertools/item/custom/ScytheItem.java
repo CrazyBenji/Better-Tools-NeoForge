@@ -33,6 +33,10 @@ public class ScytheItem extends HoeItem {
         super(tier, properties.attributes(createAttributes(tier, attackDamageModifier, attackSpeedModifier)));
     }
 
+    public ScytheItem(Tier tier, Properties properties) {
+        this(tier, 3.0F, -3.2F, properties);
+    }
+
     @Override
     public @NotNull InteractionResult useOn(UseOnContext useOnContext) {
         Level level = useOnContext.getLevel();

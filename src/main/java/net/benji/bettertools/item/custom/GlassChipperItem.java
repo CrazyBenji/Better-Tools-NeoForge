@@ -18,6 +18,9 @@ public class GlassChipperItem extends DiggerItem {
     public GlassChipperItem(Tier tier, float attackDamageModifier, float attackSpeedModifier, Properties properties) {
         super(tier, BetterToolsTags.Blocks.GLASS_CHIPPER_MINEABLE, properties.attributes(createAttributes(tier, attackDamageModifier, attackSpeedModifier)));
     }
+    public GlassChipperItem(Tier tier, Properties properties) {
+        this(tier, 0F, -3.2F, properties);
+    }
 
     @Override
     public void appendHoverText(@NotNull ItemStack stack, @NotNull TooltipContext context, @NotNull List<Component> tooltipComponents, @NotNull TooltipFlag tooltipFlag) {

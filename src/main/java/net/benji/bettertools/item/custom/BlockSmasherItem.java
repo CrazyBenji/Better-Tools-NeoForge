@@ -48,12 +48,7 @@ public class BlockSmasherItem extends Item {
             EquipmentSlot equipmentSlot = stack.equals(player.getItemBySlot(EquipmentSlot.OFFHAND)) ? EquipmentSlot.OFFHAND : EquipmentSlot.MAINHAND;
             stack.hurtAndBreak(1, player, equipmentSlot);
             player.playSound(SoundEvents.GRAVEL_BREAK);
-            if (player.getMainHandItem().getItem().equals(this)) {
-                player.swing(InteractionHand.MAIN_HAND);
-            }
-            else {
-                player.swing(InteractionHand.OFF_HAND);
-            }
+            player.swing(context.getHand());
         }
 
         return super.useOn(context);

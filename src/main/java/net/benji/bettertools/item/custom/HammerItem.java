@@ -31,6 +31,10 @@ public class HammerItem extends PickaxeItem {
         super(tier, settings.attributes(createAttributes(tier, attackDamageModifier, attackSpeedModifier)));
     }
 
+    public HammerItem(Tier tier, Properties properties) {
+        this(tier, 1.0F, -2.8F, properties);
+    }
+
     @Override
     public boolean mineBlock(@NotNull ItemStack stack, Level level, @NotNull BlockState state, @NotNull BlockPos pos, @NotNull LivingEntity player) {
         if (!level.isClientSide && level instanceof ServerLevel) {

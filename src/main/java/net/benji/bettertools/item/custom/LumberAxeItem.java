@@ -33,6 +33,10 @@ public class LumberAxeItem extends AxeItem {
         this.toBreak = new HashSet<>();
     }
 
+    public LumberAxeItem(Tier tier, Properties properties, int maxLogs) {
+        this(tier, 6.0F, -3.2F, properties, maxLogs);
+    }
+
     @Override
     public boolean mineBlock(@NotNull ItemStack stack, Level level, @NotNull BlockState state, @NotNull BlockPos pos, @NotNull LivingEntity player) {
 
