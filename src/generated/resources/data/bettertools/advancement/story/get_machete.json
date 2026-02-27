@@ -1,11 +1,11 @@
 {
   "parent": "minecraft:story/iron_tools",
   "criteria": {
-    "got_glass_chipper": {
+    "got_machete": {
       "conditions": {
         "items": [
           {
-            "items": "#bettertools:glass_chippers"
+            "items": "#bettertools:machetes"
           }
         ]
       },
@@ -14,19 +14,19 @@
   },
   "display": {
     "description": {
-      "translate": "advancements.story.get_glass_chipper.description"
+      "translate": "advancements.story.get_machete.description"
     },
     "icon": {
       "count": 1,
-      "id": "bettertools:glass_chipper"
+      "id": "bettertools:iron_machete"
     },
     "title": {
-      "translate": "advancements.story.get_glass_chipper.title"
+      "translate": "advancements.story.get_machete.title"
     }
   },
   "requirements": [
     [
-      "got_glass_chipper"
+      "got_machete"
     ]
   ],
   "sends_telemetry_event": true

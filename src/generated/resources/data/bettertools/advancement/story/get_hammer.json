@@ -5,7 +5,7 @@
       "conditions": {
         "items": [
           {
-            "items": "bettertools:iron_hammer"
+            "items": "#bettertools:hammers"
           }
         ]
       },

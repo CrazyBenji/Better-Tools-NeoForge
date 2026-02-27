@@ -45,7 +45,9 @@ public class BetterToolsAdvancementProvider extends AdvancementProvider {
                             true,
                             false
                     )
-                    .addCriterion("hammer", InventoryChangeTrigger.TriggerInstance.hasItems(BetterToolsItems.IRON_HAMMER))
+                    .addCriterion("hammer", InventoryChangeTrigger.TriggerInstance.hasItems(
+                            ItemPredicate.Builder.item().of(BetterToolsTags.Items.HAMMERS).build()
+                    ))
                     .save(consumer, BetterToolsNeoforge.MOD_ID + ":story/get_hammer");
 
             AdvancementHolder getPaxel = Advancement.Builder.advancement()
@@ -60,7 +62,9 @@ public class BetterToolsAdvancementProvider extends AdvancementProvider {
                             true,
                             false
                     )
-                    .addCriterion("got_paxel", InventoryChangeTrigger.TriggerInstance.hasItems(BetterToolsItems.IRON_PAXEL))
+                    .addCriterion("got_paxel", InventoryChangeTrigger.TriggerInstance.hasItems(
+                            ItemPredicate.Builder.item().of(BetterToolsTags.Items.PAXELS).build()
+                    ))
                     .save(consumer, BetterToolsNeoforge.MOD_ID + ":story/get_paxel");
 
             AdvancementHolder getScythe = Advancement.Builder.advancement()
@@ -75,7 +79,9 @@ public class BetterToolsAdvancementProvider extends AdvancementProvider {
                             true,
                             false
                     )
-                    .addCriterion("got_scythe", InventoryChangeTrigger.TriggerInstance.hasItems(BetterToolsItems.IRON_SCYTHE))
+                    .addCriterion("got_scythe", InventoryChangeTrigger.TriggerInstance.hasItems(
+                            ItemPredicate.Builder.item().of(BetterToolsTags.Items.SCYTHES).build()
+                    ))
                     .save(consumer, BetterToolsNeoforge.MOD_ID + ":story/get_scythe");
 
             AdvancementHolder getNetheriteScythe = Advancement.Builder.advancement()
@@ -107,7 +113,9 @@ public class BetterToolsAdvancementProvider extends AdvancementProvider {
                             true,
                             false
                     )
-                    .addCriterion("got_glass_chipper", InventoryChangeTrigger.TriggerInstance.hasItems(BetterToolsItems.GLASS_CHIPPER))
+                    .addCriterion("got_glass_chipper", InventoryChangeTrigger.TriggerInstance.hasItems(
+                            ItemPredicate.Builder.item().of(BetterToolsTags.Items.GLASS_CHIPPERS).build()
+                    ))
                     .save(consumer, BetterToolsNeoforge.MOD_ID + ":story/get_glass_chipper");
 
             AdvancementHolder getBedrockSmasher = Advancement.Builder.advancement()
@@ -135,7 +143,9 @@ public class BetterToolsAdvancementProvider extends AdvancementProvider {
                             true,
                             false
                     )
-                    .addCriterion("got_lumber_axe", InventoryChangeTrigger.TriggerInstance.hasItems(BetterToolsItems.IRON_LUMBER_AXE))
+                    .addCriterion("got_lumber_axe", InventoryChangeTrigger.TriggerInstance.hasItems(
+                            ItemPredicate.Builder.item().of(BetterToolsTags.Items.LUMBER_AXES).build()
+                    ))
                     .save(consumer, BetterToolsNeoforge.MOD_ID + ":story/get_lumber_axe");
 
             AdvancementHolder getMachete = Advancement.Builder.advancement()
