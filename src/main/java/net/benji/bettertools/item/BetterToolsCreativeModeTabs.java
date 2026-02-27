@@ -37,6 +37,11 @@ public class BetterToolsCreativeModeTabs {
                 output.accept(BetterToolsItems.DIAMOND_LUMBER_AXE.get());
                 output.accept(BetterToolsItems.NETHERITE_LUMBER_AXE.get());
 
+                output.accept(BetterToolsItems.IRON_MACHETE.get());
+                output.accept(BetterToolsItems.GOLDEN_MACHETE.get());
+                output.accept(BetterToolsItems.DIAMOND_MACHETE.get());
+                output.accept(BetterToolsItems.NETHERITE_MACHETE.get());
+
                 output.accept(BetterToolsItems.GLASS_CHIPPER.get());
 
                 output.accept(BetterToolsItems.BEDROCK_SMASHER.get());
