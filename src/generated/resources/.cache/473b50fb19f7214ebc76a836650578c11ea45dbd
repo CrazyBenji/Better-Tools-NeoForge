@@ -1,5 +1,6 @@
-// 1.21.1	2026-02-27T18:24:28.4602145	Tags for minecraft:block mod id bettertools
+// 1.21.1	2026-02-27T18:52:26.115017	Tags for minecraft:block mod id bettertools
 bebb0c933696b36224cf99e520a0c74c745442ea data/bettertools/tags/block/mineable/glass_chipper.json
 1458f98deaa9224d35dd50fc42bf3ff84a4e4fcf data/bettertools/tags/block/mineable/machete.json
 82362cfbd1836db13c7e9d36c8712821e795ac55 data/bettertools/tags/block/mineable/paxel.json
 64f5176353f642aa08103a3e0e7443d420797ede data/minecraft/tags/block/mineable/pickaxe.json
+64f5176353f642aa08103a3e0e7443d420797ede data/minecraft/tags/block/needs_diamond_tool.json

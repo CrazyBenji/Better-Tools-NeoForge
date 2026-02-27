@@ -49,5 +49,8 @@ public class BetterToolsBlockTagProvider extends BlockTagsProvider {
 
         this.tag(BlockTags.MINEABLE_WITH_PICKAXE)
                 .add(BetterToolsBlocks.SMASHED_BEDROCK.get());
+
+        this.tag(BlockTags.NEEDS_DIAMOND_TOOL)
+                .add(BetterToolsBlocks.SMASHED_BEDROCK.get());
     }
 }

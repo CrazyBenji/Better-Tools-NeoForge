@@ -32,6 +32,7 @@ public class BetterToolsDataGenerator {
         generator.addProvider(event.includeClient(), new BetterToolsBlockStateProvider(packOutput, existingFileHelper));
 
         generator.addProvider(event.includeServer(), new BetterToolsRegistryDataGenerator(packOutput, lookupProvider));
+        generator.addProvider(event.includeServer(), BetterToolsLootTableProvider.create(packOutput, lookupProvider));
     }
 
 
