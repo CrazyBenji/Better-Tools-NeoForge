@@ -1,10 +1,11 @@
-// 1.21.1	2025-12-21T15:11:08.4281951	Tags for minecraft:item mod id vanilla
+// 1.21.1	2026-02-27T18:24:28.4636425	Tags for minecraft:item mod id vanilla
 0f73f37ac1d977ce5619b9fabe073594466cde7e data/bettertools/tags/item/glass_chippers.json
 c351054b0c9f9f61ad95883845b8e160e4960fca data/bettertools/tags/item/hammers.json
 431f29016fde04b58974011e4eb0d0da20ee110f data/bettertools/tags/item/lumber_axes.json
+da5ec4bbc972410fde324cb3397df7aedba51cc1 data/bettertools/tags/item/machetes.json
 c27351e63043512b13708b5a1b08ecaded139712 data/bettertools/tags/item/paxels.json
 6119dfcacda6b0dcae460c35d0a84f85706f71ae data/bettertools/tags/item/scythes.json
-a3343eaf4e159934e84bd527076d47dc899ac27a data/minecraft/tags/item/enchantable/durability.json
-7ff0a33b2bcb198cfb2998235719e32487aab868 data/minecraft/tags/item/enchantable/mining.json
-3793c470e7fa1d2ad25002c107de73f0849cb623 data/minecraft/tags/item/enchantable/mining_loot.json
-611df3c510af12b09e56a578f13bdf161db0271c data/minecraft/tags/item/enchantable/sharp_weapon.json
+9fc9a70374a93de3061af26e7e57646d36381d43 data/minecraft/tags/item/enchantable/durability.json
+c6a45510648a49112f932fc9d17843fe44c7d6a4 data/minecraft/tags/item/enchantable/mining.json
+ff8897d93a70e31b0896542a6e46304ffb11de75 data/minecraft/tags/item/enchantable/mining_loot.json
+def4bd81cdd8b25612e0e6de53cbd9388c0b6dad data/minecraft/tags/item/enchantable/sharp_weapon.json

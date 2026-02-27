@@ -61,6 +61,17 @@ public class BetterToolsRecipeProvider extends RecipeProvider implements ICondit
                 .save(recipeOutput);
     }
 
+    public void generateMacheteRecipe(RecipeOutput recipeOutput, Item ingot, Item output) {
+        ShapedRecipeBuilder.shaped(RecipeCategory.TOOLS, output, 1)
+                .pattern("  i")
+                .pattern(" i ")
+                .pattern("s  ")
+                .define('i', ingot)
+                .define('s', Items.STICK)
+                .unlockedBy(getHasName(ingot), has(ingot))
+                .save(recipeOutput);
+    }
+
     @Override
     protected void buildRecipes(@NotNull RecipeOutput recipeOutput) {
         generateHammerRecipe(recipeOutput, Items.IRON_INGOT, Items.IRON_BLOCK, BetterToolsItems.IRON_HAMMER.get());
@@ -100,5 +111,10 @@ public class BetterToolsRecipeProvider extends RecipeProvider implements ICondit
                 .define('s', Items.STICK)
                 .unlockedBy(getHasName(Items.NETHER_STAR), has(Items.NETHER_STAR))
                 .save(recipeOutput);
+
+        generateMacheteRecipe(recipeOutput, Items.IRON_INGOT, BetterToolsItems.IRON_MACHETE.get());
+        generateMacheteRecipe(recipeOutput, Items.GOLD_INGOT, BetterToolsItems.GOLDEN_MACHETE.get());
+        generateMacheteRecipe(recipeOutput, Items.DIAMOND, BetterToolsItems.DIAMOND_MACHETE.get());
+        netheriteSmithing(recipeOutput, BetterToolsItems.DIAMOND_MACHETE.get(), RecipeCategory.TOOLS, BetterToolsItems.NETHERITE_MACHETE.get());
     }
 }

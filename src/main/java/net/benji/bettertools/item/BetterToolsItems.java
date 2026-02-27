@@ -111,7 +111,22 @@ public class BetterToolsItems {
 
     public static final DeferredItem<Item> IRON_MACHETE = ITEMS.registerItem(
             "iron_machete",
-            properties -> new Item(properties),
+            properties -> new MacheteItem(Tiers.IRON, properties, 16),
+            new Item.Properties()
+    );
+    public static final DeferredItem<Item> GOLDEN_MACHETE = ITEMS.registerItem(
+            "golden_machete",
+            properties -> new MacheteItem(Tiers.GOLD, properties, 32),
+            new Item.Properties()
+    );
+    public static final DeferredItem<Item> DIAMOND_MACHETE = ITEMS.registerItem(
+            "diamond_machete",
+            properties -> new MacheteItem(Tiers.DIAMOND, properties, 48),
+            new Item.Properties()
+    );
+    public static final DeferredItem<Item> NETHERITE_MACHETE = ITEMS.registerItem(
+            "netherite_machete",
+            properties -> new MacheteItem(Tiers.NETHERITE, properties, 64),
             new Item.Properties()
     );
 

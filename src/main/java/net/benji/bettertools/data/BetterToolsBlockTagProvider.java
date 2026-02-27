@@ -34,6 +34,19 @@ public class BetterToolsBlockTagProvider extends BlockTagsProvider {
                 .add(Blocks.GLOWSTONE)
                 .add(Blocks.REDSTONE_LAMP);
 
+        this.tag(BetterToolsTags.Blocks.MACHETE_MINEABLE)
+                .addTag(BlockTags.LEAVES)
+                .addTag(BlockTags.FLOWERS)
+                .add(Blocks.SHORT_GRASS)
+                .add(Blocks.FERN)
+                .add(Blocks.TALL_GRASS)
+                .add(Blocks.LARGE_FERN)
+                .add(Blocks.BAMBOO)
+                .add(Blocks.NETHER_WART_BLOCK)
+                .add(Blocks.WARPED_WART_BLOCK)
+                .add(Blocks.CRIMSON_ROOTS)
+                .add(Blocks.WARPED_ROOTS);
+
         this.tag(BlockTags.MINEABLE_WITH_PICKAXE)
                 .add(BetterToolsBlocks.SMASHED_BEDROCK.get());
     }

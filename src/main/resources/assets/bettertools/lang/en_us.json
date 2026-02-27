@@ -22,6 +22,11 @@
   "item.bettertools.diamond_lumber_axe": "Diamond Lumber Axe",
   "item.bettertools.netherite_lumber_axe": "Netherite Lumber Axe",
 
+  "item.bettertools.iron_machete": "Iron Machete",
+  "item.bettertools.golden_machete": "Golden Machete",
+  "item.bettertools.diamond_machete": "Diamond Machete",
+  "item.bettertools.netherite_machete": "Netherite Machete",
+
   "block.bettertools.smashed_bedrock": "Smashed Bedrock",
 
   "itemgroup.bettertools": "Better Tools",
@@ -48,5 +53,6 @@
   "desc.bettertools.hammer": "Mines in a 3x3 area",
   "desc.bettertools.lumber_axe": "Breaks connected logs",
   "desc.bettertools.paxel": "Works as a pickaxe, axe, or shovel",
-  "desc.bettertools.scythe": "Tills in a 3x3 area"
+  "desc.bettertools.scythe": "Tills in a 3x3 area",
+  "desc.bettertools.machete": "Breaks connected foliage"
 }

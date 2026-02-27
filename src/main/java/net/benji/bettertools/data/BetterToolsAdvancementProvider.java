@@ -2,11 +2,13 @@ package net.benji.bettertools.data;
 
 import net.benji.bettertools.BetterToolsNeoforge;
 import net.benji.bettertools.item.BetterToolsItems;
+import net.benji.bettertools.util.BetterToolsTags;
 import net.minecraft.advancements.Advancement;
 import net.minecraft.advancements.AdvancementHolder;
 import net.minecraft.advancements.AdvancementRewards;
 import net.minecraft.advancements.AdvancementType;
 import net.minecraft.advancements.critereon.InventoryChangeTrigger;
+import net.minecraft.advancements.critereon.ItemPredicate;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
 import net.minecraft.network.chat.Component;
@@ -135,6 +137,22 @@ public class BetterToolsAdvancementProvider extends AdvancementProvider {
                     )
                     .addCriterion("got_lumber_axe", InventoryChangeTrigger.TriggerInstance.hasItems(BetterToolsItems.IRON_LUMBER_AXE))
                     .save(consumer, BetterToolsNeoforge.MOD_ID + ":story/get_lumber_axe");
+
+            AdvancementHolder getMachete = Advancement.Builder.advancement()
+                    .parent(getAdvancement("story/iron_tools"))
+                    .display(BetterToolsItems.IRON_MACHETE.get(),
+                            Component.translatable("advancements.story.get_machete.title"),
+                            Component.translatable("advancements.story.get_machete.description"),
+                            null,
+                            AdvancementType.TASK,
+                            true,
+                            true,
+                            false
+                    )
+                    .addCriterion("got_machete", InventoryChangeTrigger.TriggerInstance.hasItems(
+                            ItemPredicate.Builder.item().of(BetterToolsTags.Items.MACHETES).build()
+                    ))
+                    .save(consumer, BetterToolsNeoforge.MOD_ID + ":story/get_machete");
         }
     }
 }

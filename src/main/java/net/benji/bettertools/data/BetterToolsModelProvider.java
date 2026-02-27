@@ -35,6 +35,11 @@ public class BetterToolsModelProvider extends ItemModelProvider {
         handheldItem(BetterToolsItems.DIAMOND_LUMBER_AXE);
         handheldItem(BetterToolsItems.NETHERITE_LUMBER_AXE);
 
+        // handheldItem(BetterToolsItems.IRON_MACHETE);
+        // handheldItem(BetterToolsItems.GOLDEN_MACHETE);
+        // handheldItem(BetterToolsItems.DIAMOND_MACHETE);
+        // handheldItem(BetterToolsItems.NETHERITE_MACHETE);
+
         handheldItem(BetterToolsItems.GLASS_CHIPPER);
 
         handheldItem(BetterToolsItems.BEDROCK_SMASHER);

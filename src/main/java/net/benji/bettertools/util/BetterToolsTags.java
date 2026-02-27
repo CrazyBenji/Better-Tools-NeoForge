@@ -11,6 +11,7 @@ public class BetterToolsTags {
     public static class Blocks {
         public static final TagKey<Block> PAXEL_MINEABLE = createTag("mineable/paxel");
         public static final TagKey<Block> GLASS_CHIPPER_MINEABLE = createTag("mineable/glass_chipper");
+        public static final TagKey<Block> MACHETE_MINEABLE = createTag("mineable/machete");
 
         private static TagKey<Block> createTag(String name) {
             return TagKey.create(Registries.BLOCK, ResourceLocation.fromNamespaceAndPath(BetterToolsNeoforge.MOD_ID, name));
@@ -23,6 +24,7 @@ public class BetterToolsTags {
         public static final TagKey<Item> SCYTHES = createTag("scythes");
         public static final TagKey<Item> GLASS_CHIPPERS = createTag("glass_chippers");
         public static final TagKey<Item> LUMBER_AXES = createTag("lumber_axes");
+        public static final TagKey<Item> MACHETES = createTag("machetes");
 
         private static TagKey<Item> createTag(String name) {
             return TagKey.create(Registries.ITEM, ResourceLocation.fromNamespaceAndPath(BetterToolsNeoforge.MOD_ID, name));

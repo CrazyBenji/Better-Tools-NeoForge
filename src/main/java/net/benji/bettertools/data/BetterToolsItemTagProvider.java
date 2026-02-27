@@ -45,18 +45,26 @@ public class BetterToolsItemTagProvider extends ItemTagsProvider {
                 .add(BetterToolsItems.DIAMOND_LUMBER_AXE.get())
                 .add(BetterToolsItems.NETHERITE_LUMBER_AXE.get());
 
+        this.tag(BetterToolsTags.Items.MACHETES)
+                .add(BetterToolsItems.IRON_MACHETE.get())
+                .add(BetterToolsItems.GOLDEN_MACHETE.get())
+                .add(BetterToolsItems.DIAMOND_MACHETE.get())
+                .add(BetterToolsItems.NETHERITE_MACHETE.get());
+
         this.tag(ItemTags.MINING_ENCHANTABLE)
                 .addTag(BetterToolsTags.Items.HAMMERS)
                 .addTag(BetterToolsTags.Items.PAXELS)
                 .addTag(BetterToolsTags.Items.SCYTHES)
                 .addTag(BetterToolsTags.Items.LUMBER_AXES)
-                .addTag(BetterToolsTags.Items.GLASS_CHIPPERS);
+                .addTag(BetterToolsTags.Items.GLASS_CHIPPERS)
+                .addTag(BetterToolsTags.Items.MACHETES);
 
         this.tag(ItemTags.MINING_LOOT_ENCHANTABLE)
                 .addTag(BetterToolsTags.Items.HAMMERS)
                 .addTag(BetterToolsTags.Items.PAXELS)
                 .addTag(BetterToolsTags.Items.SCYTHES)
-                .addTag(BetterToolsTags.Items.LUMBER_AXES);
+                .addTag(BetterToolsTags.Items.LUMBER_AXES)
+                .addTag(BetterToolsTags.Items.MACHETES);
 
         this.tag(ItemTags.DURABILITY_ENCHANTABLE)
                 .addTag(BetterToolsTags.Items.HAMMERS)
@@ -64,9 +72,11 @@ public class BetterToolsItemTagProvider extends ItemTagsProvider {
                 .addTag(BetterToolsTags.Items.SCYTHES)
                 .addTag(BetterToolsTags.Items.LUMBER_AXES)
                 .addTag(BetterToolsTags.Items.GLASS_CHIPPERS)
+                .addTag(BetterToolsTags.Items.MACHETES)
                 .add(BetterToolsItems.BEDROCK_SMASHER.get());
 
         this.tag(ItemTags.SHARP_WEAPON_ENCHANTABLE)
-                .addTag(BetterToolsTags.Items.LUMBER_AXES);
+                .addTag(BetterToolsTags.Items.LUMBER_AXES)
+                .addTag(BetterToolsTags.Items.MACHETES);
     }
 }
