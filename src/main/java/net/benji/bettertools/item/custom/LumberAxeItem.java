@@ -51,7 +51,7 @@ public class LumberAxeItem extends AxeItem {
             this.toBreak.clear();
         }
 
-        return super.mineBlock(stack, level, state, pos, player);
+        return true;
     }
 
     private void breakConnectedLogs(ServerLevel level, BlockPos startPos) {
