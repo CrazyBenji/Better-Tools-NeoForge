@@ -4,6 +4,7 @@ import net.benji.bettertools.block.BetterToolsBlocks;
 import net.benji.bettertools.data.loot.BetterToolsLootModifiers;
 import net.benji.bettertools.item.BetterToolsCreativeModeTabs;
 import net.benji.bettertools.item.BetterToolsItems;
+import net.benji.bettertools.item.crafting.BetterToolsRecipeSerializers;
 import net.neoforged.api.distmarker.Dist;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
@@ -30,6 +31,7 @@ public class BetterToolsNeoforge {
         BetterToolsItems.registerItems(modEventBus);
         BetterToolsCreativeModeTabs.registerCreativeModeTabs(modEventBus);
         BetterToolsLootModifiers.registerLootModifiers(modEventBus);
+        BetterToolsRecipeSerializers.registerRecipeSerializers(modEventBus);
 
         modEventBus.register(BetterToolsDataGenerator.class);
     }

@@ -1,5 +1,6 @@
 package net.benji.bettertools.data;
 
+import net.benji.bettertools.data.recipes.PaxelRecipeBuilder;
 import net.benji.bettertools.item.BetterToolsItems;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
@@ -19,15 +20,8 @@ public class BetterToolsRecipeProvider extends RecipeProvider implements ICondit
         super(output, registries);
     }
 
-    public void generatePaxelRecipe(RecipeOutput recipeOutput, Item pickaxe, Item axe, Item shovel, Item output) {
-        ShapedRecipeBuilder.shaped(RecipeCategory.TOOLS, output, 1)
-                .pattern("abc")
-                .pattern(" s ")
-                .pattern(" s ")
-                .define('a', pickaxe)
-                .define('b', axe)
-                .define('c', shovel)
-                .define('s', Items.STICK)
+    public void generatePaxelRecipe(RecipeOutput recipeOutput, Item pickaxe, Item axe, Item shovel, Item result) {
+        PaxelRecipeBuilder.paxel(pickaxe, axe, shovel, result)
                 .unlockedBy(getHasName(pickaxe), has(pickaxe))
                 .save(recipeOutput);
     }
