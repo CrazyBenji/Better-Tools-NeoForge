@@ -33,12 +33,12 @@
 
   "enchantment.bettertools.reaping": "Reaping",
 
-  "advancements.story.get_hammer.title": "Real Mining",
+  "advancements.story.get_hammer.title": "Hammertime",
   "advancements.story.get_hammer.description": "Acquire a Hammer",
   "advancements.story.get_paxel.title": "Less is More",
   "advancements.story.get_paxel.description": "Acquire a Paxel",
-  "advancements.story.get_scythe.title": "That's what I call Farming",
-  "advancements.story.get_scythe.description": "Acquire a Scythe",
+  "advancements.husbandry.get_scythe.title": "That's what I call Farming",
+  "advancements.husbandry.get_scythe.description": "Acquire a Scythe",
   "advancements.husbandry.get_netherite_scythe.title": "Dedicated Farmer",
   "advancements.husbandry.get_netherite_scythe.description": "Acquire a Netherite Scythe",
   "advancements.story.get_glass_chipper.title": "Who Needs Silk Touch?",

@@ -1,5 +1,5 @@
 {
-  "parent": "minecraft:husbandry/obtain_netherite_hoe",
+  "parent": "bettertools:husbandry/get_scythe",
   "criteria": {
     "got_netherite_scythe": {
       "conditions": {
