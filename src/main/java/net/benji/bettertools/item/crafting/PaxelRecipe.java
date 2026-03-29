@@ -14,6 +14,7 @@ import net.minecraft.world.item.enchantment.ItemEnchantments;
 import net.minecraft.world.level.Level;
 import org.jetbrains.annotations.NotNull;
 
+import java.util.Collection;
 import java.util.List;
 
 public class PaxelRecipe extends CustomRecipe {
@@ -61,15 +62,23 @@ public class PaxelRecipe extends CustomRecipe {
     }
 
     private ItemEnchantments combineEnchantments(CraftingInput craftingInput) {
-        ItemEnchantments.Mutable combined = new ItemEnchantments.Mutable(EnchantmentHelper.getEnchantmentsForCrafting(craftingInput.getItem(0)));
+        ItemEnchantments.Mutable combined = this.pickaxe.test(craftingInput.getItem(0))
+                ? new ItemEnchantments.Mutable(EnchantmentHelper.getEnchantmentsForCrafting(craftingInput.getItem(0)))
+                : new ItemEnchantments.Mutable(EnchantmentHelper.getEnchantmentsForCrafting(craftingInput.getItem(2)));
+
         List<ItemEnchantments> enchantmentsToCombine = List.of(
                 EnchantmentHelper.getEnchantmentsForCrafting(craftingInput.getItem(1)),
-                EnchantmentHelper.getEnchantmentsForCrafting(craftingInput.getItem(2))
+                this.pickaxe.test(craftingInput.getItem(0))
+                        ? EnchantmentHelper.getEnchantmentsForCrafting(craftingInput.getItem(2))
+                        : EnchantmentHelper.getEnchantmentsForCrafting(craftingInput.getItem(0))
         );
 
         for (ItemEnchantments itemEnchantment : enchantmentsToCombine) {
             for (Holder<Enchantment> enchantment : itemEnchantment.keySet()) {
-                combined.upgrade(enchantment, itemEnchantment.getLevel(enchantment));
+                Collection<Holder<Enchantment>> enchantmentCollection = combined.keySet();
+                if (EnchantmentHelper.isEnchantmentCompatible(enchantmentCollection, enchantment)) {
+                    combined.upgrade(enchantment, itemEnchantment.getLevel(enchantment));
+                }
             }
         }
 

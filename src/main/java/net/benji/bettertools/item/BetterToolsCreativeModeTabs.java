@@ -1,6 +1,7 @@
 package net.benji.bettertools.item;
 
 import net.benji.bettertools.BetterToolsNeoforge;
+import net.benji.bettertools.block.BetterToolsBlocks;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.item.CreativeModeTab;
@@ -45,6 +46,8 @@ public class BetterToolsCreativeModeTabs {
                 output.accept(BetterToolsItems.GLASS_CHIPPER.get());
 
                 output.accept(BetterToolsItems.BEDROCK_SMASHER.get());
+
+                output.accept(BetterToolsBlocks.SMASHED_BEDROCK.get());
             }).build());
 
     public static void registerCreativeModeTabs(IEventBus modEventBus) {
