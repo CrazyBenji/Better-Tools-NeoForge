@@ -1,0 +1,33 @@
+{
+  "parent": "minecraft:story/upgrade_tools",
+  "criteria": {
+    "got_copper_tool": {
+      "conditions": {
+        "items": [
+          {
+            "items": "#bettertools:copper_tools"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancements.story.get_copper_tools.description"
+    },
+    "icon": {
+      "count": 1,
+      "id": "bettertools:copper_pickaxe"
+    },
+    "title": {
+      "translate": "advancements.story.get_copper_tools.title"
+    }
+  },
+  "requirements": [
+    [
+      "got_copper_tool"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

@@ -103,7 +103,7 @@ public class BetterToolsAdvancementProvider extends AdvancementProvider {
                     .save(consumer, BetterToolsNeoforge.MOD_ID + ":husbandry/get_netherite_scythe");
 
             AdvancementHolder getGlassChipper = Advancement.Builder.advancement()
-                    .parent(getAdvancement("story/iron_tools"))
+                    .parent(getAdvancement("story/smelt_iron"))
                     .display(BetterToolsItems.GLASS_CHIPPER,
                             Component.translatable("advancements.story.get_glass_chipper.title"),
                             Component.translatable("advancements.story.get_glass_chipper.description"),
@@ -133,7 +133,7 @@ public class BetterToolsAdvancementProvider extends AdvancementProvider {
                     .save(consumer, BetterToolsNeoforge.MOD_ID + ":nether/get_bedrock_smasher");
 
             AdvancementHolder getLumberAxe = Advancement.Builder.advancement()
-                    .parent(getAdvancement("story/iron_tools"))
+                    .parent(getAdvancement("story/smelt_iron"))
                     .display(BetterToolsItems.IRON_LUMBER_AXE,
                             Component.translatable("advancements.story.get_lumber_axe.title"),
                             Component.translatable("advancements.story.get_lumber_axe.description"),
@@ -149,8 +149,8 @@ public class BetterToolsAdvancementProvider extends AdvancementProvider {
                     .save(consumer, BetterToolsNeoforge.MOD_ID + ":story/get_lumber_axe");
 
             AdvancementHolder getMachete = Advancement.Builder.advancement()
-                    .parent(getAdvancement("story/iron_tools"))
-                    .display(BetterToolsItems.IRON_MACHETE.get(),
+                    .parent(getAdvancement("story/smelt_iron"))
+                    .display(BetterToolsItems.IRON_MACHETE,
                             Component.translatable("advancements.story.get_machete.title"),
                             Component.translatable("advancements.story.get_machete.description"),
                             null,
@@ -163,6 +163,52 @@ public class BetterToolsAdvancementProvider extends AdvancementProvider {
                             ItemPredicate.Builder.item().of(BetterToolsTags.Items.MACHETES).build()
                     ))
                     .save(consumer, BetterToolsNeoforge.MOD_ID + ":story/get_machete");
+
+            AdvancementHolder getCopperTools = Advancement.Builder.advancement()
+                    .parent(getAdvancement("story/upgrade_tools"))
+                    .display(BetterToolsItems.COPPER_PICKAXE,
+                            Component.translatable("advancements.story.get_copper_tools.title"),
+                            Component.translatable("advancements.story.get_copper_tools.description"),
+                            null,
+                            AdvancementType.TASK,
+                            true,
+                            true,
+                            false
+                    )
+                    .addCriterion("got_copper_tool", InventoryChangeTrigger.TriggerInstance.hasItems(
+                            ItemPredicate.Builder.item().of(BetterToolsTags.Items.COPPER_TOOLS).build()
+                    ))
+                    .save(consumer, BetterToolsNeoforge.MOD_ID + ":story/get_copper_tool");
+
+            AdvancementHolder getAmethystTool = Advancement.Builder.advancement()
+                    .parent(getAdvancement("story/upgrade_tools"))
+                    .display(BetterToolsItems.AMETHYST_PICKAXE,
+                            Component.translatable("advancements.story.get_amethyst_tools.title"),
+                            Component.translatable("advancements.story.get_amethyst_tools.description"),
+                            null,
+                            AdvancementType.TASK,
+                            true,
+                            true,
+                            false
+                    )
+                    .addCriterion("got_amethyst_tool", InventoryChangeTrigger.TriggerInstance.hasItems(
+                            ItemPredicate.Builder.item().of(BetterToolsTags.Items.AMETHYST_TOOLS).build()
+                    ))
+                    .save(consumer, BetterToolsNeoforge.MOD_ID + ":story/get_amethyst_tool");
+
+            AdvancementHolder getWoodChisel = Advancement.Builder.advancement()
+                    .parent(getAdvancement("story/smelt_iron"))
+                    .display(BetterToolsItems.WOOD_CHISEL,
+                            Component.translatable("advancements.story.get_wood_chisel.title"),
+                            Component.translatable("advancements.story.get_wood_chisel.description"),
+                            null,
+                            AdvancementType.TASK,
+                            true,
+                            true,
+                            false
+                    )
+                    .addCriterion("got_wood_chisel", InventoryChangeTrigger.TriggerInstance.hasItems(BetterToolsItems.WOOD_CHISEL))
+                    .save(consumer, BetterToolsNeoforge.MOD_ID + ":story/get_wood_chisel");
         }
     }
 }

@@ -1,5 +1,6 @@
 package net.benji.bettertools.item.crafting;
 
+import com.mojang.serialization.Codec;
 import com.mojang.serialization.MapCodec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 import net.minecraft.core.Holder;
@@ -11,64 +12,43 @@ import net.minecraft.world.item.crafting.*;
 import net.minecraft.world.item.enchantment.Enchantment;
 import net.minecraft.world.item.enchantment.EnchantmentHelper;
 import net.minecraft.world.item.enchantment.ItemEnchantments;
-import net.minecraft.world.level.Level;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.Collection;
 import java.util.List;
 
-public class PaxelRecipe extends CustomRecipe {
+public class PaxelRecipe extends ShapedRecipe {
+    final ShapedRecipePattern pattern;
+    final ItemStack result;
+    final String group;
+    final CraftingBookCategory category;
+    final boolean showNotification;
 
-    private final Ingredient pickaxe;
-    private final Ingredient axe;
-    private final Ingredient shovel;
-    private final Ingredient stick1;
-    private final Ingredient stick2;
-    private final ItemStack result;
-
-    public PaxelRecipe(Ingredient pickaxe, Ingredient axe, Ingredient shovel,
-                       Ingredient stick1, Ingredient stick2, ItemStack result) {
-        super(CraftingBookCategory.EQUIPMENT);
-        this.pickaxe = pickaxe;
-        this.axe = axe;
-        this.shovel = shovel;
-        this.stick1 = stick1;
-        this.stick2 = stick2;
-        this.result = result;
-    }
-
-    @Override
-    public boolean matches(@NotNull CraftingInput craftingInput, Level level) {
-        if (level.isClientSide() || craftingInput.size() < 7) {
-            return false;
-        }
-
-        return (this.pickaxe.test(craftingInput.getItem(0)) && this.axe.test(craftingInput.getItem(1)) && this.shovel.test(craftingInput.getItem(2))
-                && this.stick1.test(craftingInput.getItem(4)) && this.stick2.test(craftingInput.getItem(7)) && testEmpty(craftingInput))
-                || (this.shovel.test(craftingInput.getItem(0)) && this.axe.test(craftingInput.getItem(1)) && this.pickaxe.test(craftingInput.getItem(2))
-                && this.stick1.test(craftingInput.getItem(4)) && this.stick2.test(craftingInput.getItem(7)) && testEmpty(craftingInput));
-    }
-
-    public boolean testEmpty(@NotNull CraftingInput craftingInput) {
-        return (Ingredient.EMPTY.test(craftingInput.getItem(3)) && Ingredient.EMPTY.test(craftingInput.getItem(5))
-                && Ingredient.EMPTY.test(craftingInput.getItem(6)) && Ingredient.EMPTY.test(craftingInput.getItem(8)));
+    public PaxelRecipe(String string, CraftingBookCategory craftingBookCategory, ShapedRecipePattern shapedRecipePattern, ItemStack itemStack, boolean bl) {
+        super(string, craftingBookCategory, shapedRecipePattern, itemStack, bl);
+        this.group = string;
+        this.category = craftingBookCategory;
+        this.pattern = shapedRecipePattern;
+        this.result = itemStack;
+        this.showNotification = bl;
     }
 
     @Override
     public @NotNull ItemStack assemble(@NotNull CraftingInput craftingInput, @NotNull HolderLookup.Provider provider) {
-        ItemStack toReturn = new ItemStack(this.result.getItem());
+        super.assemble(craftingInput, provider);
+        ItemStack toReturn = result.copy();
         EnchantmentHelper.setEnchantments(toReturn, combineEnchantments(craftingInput));
         return toReturn;
     }
 
     private ItemEnchantments combineEnchantments(CraftingInput craftingInput) {
-        ItemEnchantments.Mutable combined = this.pickaxe.test(craftingInput.getItem(0))
+        ItemEnchantments.Mutable combined = this.pattern.ingredients().get(0).test(craftingInput.getItem(0))
                 ? new ItemEnchantments.Mutable(EnchantmentHelper.getEnchantmentsForCrafting(craftingInput.getItem(0)))
                 : new ItemEnchantments.Mutable(EnchantmentHelper.getEnchantmentsForCrafting(craftingInput.getItem(2)));
 
         List<ItemEnchantments> enchantmentsToCombine = List.of(
                 EnchantmentHelper.getEnchantmentsForCrafting(craftingInput.getItem(1)),
-                this.pickaxe.test(craftingInput.getItem(0))
+                this.pattern.ingredients().get(0).test(craftingInput.getItem(0))
                         ? EnchantmentHelper.getEnchantmentsForCrafting(craftingInput.getItem(2))
                         : EnchantmentHelper.getEnchantmentsForCrafting(craftingInput.getItem(0))
         );
@@ -95,44 +75,20 @@ public class PaxelRecipe extends CustomRecipe {
         return BetterToolsRecipeSerializers.PAXEL_RECIPE_SERIALIZER.get();
     }
 
-    public Ingredient pickaxe() {
-        return this.pickaxe;
-    }
-    public Ingredient axe() {
-        return this.axe;
-    }
-    public Ingredient shovel() {
-        return this.shovel;
-    }
-    public Ingredient stick1() {
-        return this.stick1;
-    }
-    public Ingredient stick2() {
-        return this.stick2;
-    }
-    public ItemStack result() {
-        return this.result;
-    }
-
     public static class PaxelRecipeSerializer implements RecipeSerializer<PaxelRecipe> {
-        public static final MapCodec<PaxelRecipe> CODEC = RecordCodecBuilder.mapCodec(inst -> inst.group(
-                Ingredient.CODEC_NONEMPTY.fieldOf("pickaxe").forGetter(PaxelRecipe::pickaxe),
-                Ingredient.CODEC_NONEMPTY.fieldOf("axe").forGetter(PaxelRecipe::axe),
-                Ingredient.CODEC_NONEMPTY.fieldOf("shovel").forGetter(PaxelRecipe::shovel),
-                Ingredient.CODEC_NONEMPTY.fieldOf("stick1").forGetter(PaxelRecipe::stick1),
-                Ingredient.CODEC_NONEMPTY.fieldOf("stick2").forGetter(PaxelRecipe::stick2),
-                ItemStack.CODEC.fieldOf("result").forGetter(PaxelRecipe::result)
-        ).apply(inst, PaxelRecipe::new));
-
-        public static final StreamCodec<RegistryFriendlyByteBuf, PaxelRecipe> STREAM_CODEC =
-                StreamCodec.composite(
-                        Ingredient.CONTENTS_STREAM_CODEC, PaxelRecipe::pickaxe,
-                        Ingredient.CONTENTS_STREAM_CODEC, PaxelRecipe::axe,
-                        Ingredient.CONTENTS_STREAM_CODEC, PaxelRecipe::shovel,
-                        Ingredient.CONTENTS_STREAM_CODEC, PaxelRecipe::stick1,
-                        Ingredient.CONTENTS_STREAM_CODEC, PaxelRecipe::stick2,
-                        ItemStack.STREAM_CODEC, PaxelRecipe::result,
-                        PaxelRecipe::new);
+        public static final MapCodec<PaxelRecipe> CODEC = RecordCodecBuilder.mapCodec(
+                instance -> instance.group(
+                                Codec.STRING.optionalFieldOf("group", "").forGetter(shapedRecipe -> shapedRecipe.group),
+                                CraftingBookCategory.CODEC.fieldOf("category").orElse(CraftingBookCategory.MISC).forGetter(shapedRecipe -> shapedRecipe.category),
+                                ShapedRecipePattern.MAP_CODEC.forGetter(shapedRecipe -> shapedRecipe.pattern),
+                                ItemStack.STRICT_CODEC.fieldOf("result").forGetter(shapedRecipe -> shapedRecipe.result),
+                                Codec.BOOL.optionalFieldOf("show_notification", true).forGetter(shapedRecipe -> shapedRecipe.showNotification)
+                        )
+                        .apply(instance, PaxelRecipe::new)
+        );
+        public static final StreamCodec<RegistryFriendlyByteBuf, PaxelRecipe> STREAM_CODEC = StreamCodec.of(
+                PaxelRecipeSerializer::toNetwork, PaxelRecipeSerializer::fromNetwork
+        );
 
         @Override
         public @NotNull MapCodec<PaxelRecipe> codec() {
@@ -142,6 +98,23 @@ public class PaxelRecipe extends CustomRecipe {
         @Override
         public @NotNull StreamCodec<RegistryFriendlyByteBuf, PaxelRecipe> streamCodec() {
             return STREAM_CODEC;
+        }
+
+        private static PaxelRecipe fromNetwork(RegistryFriendlyByteBuf registryFriendlyByteBuf) {
+            String string = registryFriendlyByteBuf.readUtf();
+            CraftingBookCategory craftingBookCategory = registryFriendlyByteBuf.readEnum(CraftingBookCategory.class);
+            ShapedRecipePattern shapedRecipePattern = ShapedRecipePattern.STREAM_CODEC.decode(registryFriendlyByteBuf);
+            ItemStack itemStack = ItemStack.STREAM_CODEC.decode(registryFriendlyByteBuf);
+            boolean bl = registryFriendlyByteBuf.readBoolean();
+            return new PaxelRecipe(string, craftingBookCategory, shapedRecipePattern, itemStack, bl);
+        }
+
+        private static void toNetwork(RegistryFriendlyByteBuf registryFriendlyByteBuf, PaxelRecipe shapedRecipe) {
+            registryFriendlyByteBuf.writeUtf(shapedRecipe.group);
+            registryFriendlyByteBuf.writeEnum(shapedRecipe.category);
+            ShapedRecipePattern.STREAM_CODEC.encode(registryFriendlyByteBuf, shapedRecipe.pattern);
+            ItemStack.STREAM_CODEC.encode(registryFriendlyByteBuf, shapedRecipe.result);
+            registryFriendlyByteBuf.writeBoolean(shapedRecipe.showNotification);
         }
     }
 }

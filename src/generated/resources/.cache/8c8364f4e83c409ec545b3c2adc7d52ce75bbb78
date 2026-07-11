@@ -1,11 +1,20 @@
-// 1.21.1	2026-02-27T18:24:28.4636425	Tags for minecraft:item mod id vanilla
+// 1.21.1	2026-07-11T14:56:30.0566787	Tags for minecraft:item mod id vanilla
+da5296d0fe1bafa98827bf2d40fb895a42734706 data/bettertools/tags/item/amethyst_tools.json
+bde6ca31173d1f22d5f6fe355dc90c9faa35b239 data/bettertools/tags/item/amethyst_tool_materials.json
+3abb8babdf82f99840cdcfe2976e6ac0344eb555 data/bettertools/tags/item/copper_tools.json
+6222fd0d7d2ce08ee1f70be68a61f4e167dda650 data/bettertools/tags/item/copper_tool_materials.json
 0f73f37ac1d977ce5619b9fabe073594466cde7e data/bettertools/tags/item/glass_chippers.json
-c351054b0c9f9f61ad95883845b8e160e4960fca data/bettertools/tags/item/hammers.json
-431f29016fde04b58974011e4eb0d0da20ee110f data/bettertools/tags/item/lumber_axes.json
-da5ec4bbc972410fde324cb3397df7aedba51cc1 data/bettertools/tags/item/machetes.json
-c27351e63043512b13708b5a1b08ecaded139712 data/bettertools/tags/item/paxels.json
-6119dfcacda6b0dcae460c35d0a84f85706f71ae data/bettertools/tags/item/scythes.json
-9fc9a70374a93de3061af26e7e57646d36381d43 data/minecraft/tags/item/enchantable/durability.json
+63318a67d368a10f67a7f1e01c98e383c6e2f69f data/bettertools/tags/item/hammers.json
+fcefb1c6becd701b04f226e36936fcb057802cae data/bettertools/tags/item/lumber_axes.json
+7ddd2e8af7834af8b853cce65a7c5b41d46f710e data/bettertools/tags/item/machetes.json
+bd97c1486d8304b9e0ac1eb448fee0bda4852e81 data/bettertools/tags/item/paxels.json
+67a9e8ee3a0bf97101ff33a69ea5cb780144d812 data/bettertools/tags/item/scythes.json
+c0c967e89e5c6ba34a68e5eb70a5bda1deefefd7 data/minecraft/tags/item/axes.json
+1c78e1df2c8b3eade196890db620b812396c5a08 data/minecraft/tags/item/enchantable/durability.json
 c6a45510648a49112f932fc9d17843fe44c7d6a4 data/minecraft/tags/item/enchantable/mining.json
 ff8897d93a70e31b0896542a6e46304ffb11de75 data/minecraft/tags/item/enchantable/mining_loot.json
-def4bd81cdd8b25612e0e6de53cbd9388c0b6dad data/minecraft/tags/item/enchantable/sharp_weapon.json
+611df3c510af12b09e56a578f13bdf161db0271c data/minecraft/tags/item/enchantable/sharp_weapon.json
+ebbbaf0794d81c4cbde33fec96339afe37914b29 data/minecraft/tags/item/hoes.json
+0b16b2719656775f594ddb0e0ffc4ff7246f67c4 data/minecraft/tags/item/pickaxes.json
+f8080c144e99c4911118eea11edfb34b47186778 data/minecraft/tags/item/shovels.json
+687070cff988c75fe735e0010c2546dbfd81c19c data/minecraft/tags/item/swords.json

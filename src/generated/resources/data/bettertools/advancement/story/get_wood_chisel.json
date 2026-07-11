@@ -1,0 +1,33 @@
+{
+  "parent": "minecraft:story/smelt_iron",
+  "criteria": {
+    "got_wood_chisel": {
+      "conditions": {
+        "items": [
+          {
+            "items": "bettertools:wood_chisel"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancements.story.get_wood_chisel.description"
+    },
+    "icon": {
+      "count": 1,
+      "id": "bettertools:wood_chisel"
+    },
+    "title": {
+      "translate": "advancements.story.get_wood_chisel.title"
+    }
+  },
+  "requirements": [
+    [
+      "got_wood_chisel"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

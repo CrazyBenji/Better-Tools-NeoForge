@@ -58,7 +58,6 @@ public class ScytheItem extends HoeItem {
 
             boolean anyBlockHoed = false;
 
-            // Attempt to till each block in the area
             for (BlockPos targetPos : positionsToHoe) {
                 UseOnContext context = new UseOnContext(level, player, useOnContext.getHand(), itemStack,
                         new BlockHitResult(useOnContext.getClickLocation(), useOnContext.getClickedFace(), targetPos, useOnContext.isInside()));
@@ -68,17 +67,14 @@ public class ScytheItem extends HoeItem {
                     Predicate<UseOnContext> predicate = pair.getFirst();
                     Consumer<UseOnContext> consumer = pair.getSecond();
                     if (predicate.test(context)) {
-                        if (!level.isClientSide()) {
-                            consumer.accept(context);
-                        }
-
+                        level.playSound(player, blockPos, SoundEvents.HOE_TILL, SoundSource.BLOCKS, 1.0F, 1.0F);
+                        consumer.accept(context);
                         anyBlockHoed = true;
                     }
                 }
             }
 
             if (anyBlockHoed) {
-                level.playSound(player, blockPos, SoundEvents.HOE_TILL, SoundSource.BLOCKS, 1.0F, 1.0F);
                 // Damage the tool once for the original block
                 if (player != null) {
                     EquipmentSlot equipmentSlot = itemStack.equals(player.getItemBySlot(EquipmentSlot.OFFHAND)) ? EquipmentSlot.OFFHAND : EquipmentSlot.MAINHAND;
@@ -88,7 +84,7 @@ public class ScytheItem extends HoeItem {
             }
 
             // Crop harvesting behavior
-            if (block instanceof CropBlock) {
+            if (block instanceof CropBlock cropBlock && cropBlock.isMaxAge(blockState)) {
                 // Generate loot table
                 LootParams.Builder lootBuilder = new LootParams.Builder(serverLevel)
                         .withParameter(LootContextParams.ORIGIN, Vec3.atCenterOf(blockPos))
@@ -111,7 +107,8 @@ public class ScytheItem extends HoeItem {
             }
         }
 
-        return InteractionResult.PASS;
+        // Fall back to default hoe behavior if no custom hoeing happened
+        return super.useOn(useOnContext);
     }
 
     private List<BlockPos> get3x3Positions(BlockPos center) {

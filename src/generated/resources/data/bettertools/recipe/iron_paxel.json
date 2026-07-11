@@ -1,22 +1,27 @@
 {
   "type": "bettertools:paxel",
-  "axe": {
-    "item": "minecraft:iron_axe"
+  "category": "equipment",
+  "key": {
+    "a": {
+      "item": "minecraft:iron_axe"
+    },
+    "p": {
+      "item": "minecraft:iron_pickaxe"
+    },
+    "r": {
+      "tag": "c:rods/wooden"
+    },
+    "s": {
+      "item": "minecraft:iron_shovel"
+    }
   },
-  "pickaxe": {
-    "item": "minecraft:iron_pickaxe"
-  },
+  "pattern": [
+    "pas",
+    " r ",
+    " r "
+  ],
   "result": {
     "count": 1,
     "id": "bettertools:iron_paxel"
-  },
-  "shovel": {
-    "item": "minecraft:iron_shovel"
-  },
-  "stick1": {
-    "item": "minecraft:stick"
-  },
-  "stick2": {
-    "item": "minecraft:stick"
   }
 }

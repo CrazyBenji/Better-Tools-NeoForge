@@ -1,74 +1,118 @@
 package net.benji.bettertools.data.recipes;
 
+import com.google.common.collect.Lists;
+import com.google.common.collect.Maps;
 import net.benji.bettertools.item.crafting.PaxelRecipe;
 import net.minecraft.advancements.Advancement;
 import net.minecraft.advancements.AdvancementRequirements;
 import net.minecraft.advancements.AdvancementRewards;
 import net.minecraft.advancements.Criterion;
 import net.minecraft.advancements.critereon.RecipeUnlockedTrigger;
-import net.minecraft.data.recipes.RecipeBuilder;
-import net.minecraft.data.recipes.RecipeCategory;
-import net.minecraft.data.recipes.RecipeOutput;
+import net.minecraft.data.recipes.*;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.Ingredient;
+import net.minecraft.world.item.crafting.ShapedRecipePattern;
 import net.minecraft.world.level.ItemLike;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
-public class PaxelRecipeBuilder implements RecipeBuilder {
-    private final Ingredient pickaxe;
-    private final Ingredient axe;
-    private final Ingredient shovel;
-    private final Ingredient stick1;
-    private final Ingredient stick2;
+import java.util.LinkedHashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.Objects;
+
+public class PaxelRecipeBuilder extends ShapedRecipeBuilder {
+    private final RecipeCategory category;
     private final Item result;
-    private final Advancement.Builder advancement = Advancement.Builder.recipeAdvancement();
+    private final int count;
+    private final List<String> rows = Lists.newArrayList();
+    private final Map<Character, Ingredient> key = Maps.newLinkedHashMap();
+    private final Map<String, Criterion<?>> criteria = new LinkedHashMap<>();
+    @Nullable
+    private String group;
+    private boolean showNotification = true;
 
-    public PaxelRecipeBuilder(ItemLike pickaxe, ItemLike axe, ItemLike shovel, ItemLike stick1, ItemLike stick2, ItemLike result) {
-        this.pickaxe = Ingredient.of(pickaxe);
-        this.axe = Ingredient.of(axe);
-        this.shovel = Ingredient.of(shovel);
-        this.stick1 = Ingredient.of(stick1);
-        this.stick2 = Ingredient.of(stick2);
+    public PaxelRecipeBuilder(RecipeCategory recipeCategory, ItemLike result, int amount) {
+        super(recipeCategory, result, amount);
+        this.category = recipeCategory;
         this.result = result.asItem();
+        this.count = amount;
     }
 
-    public static PaxelRecipeBuilder paxel(ItemLike pickaxe, ItemLike axe, ItemLike shovel, ItemLike result) {
-        return paxel(pickaxe, axe, shovel, Items.STICK, result);
-    }
-
-    public static PaxelRecipeBuilder paxel(ItemLike pickaxe, ItemLike axe, ItemLike shovel, ItemLike sticks, ItemLike result) {
-        return paxel(pickaxe, axe, shovel, sticks, sticks, result);
-    }
-
-    public static PaxelRecipeBuilder paxel(ItemLike pickaxe, ItemLike axe, ItemLike shovel, ItemLike stick1, ItemLike stick2, ItemLike result) {
-        return new PaxelRecipeBuilder(pickaxe, axe, shovel, stick1, stick2, result);
+    public static PaxelRecipeBuilder paxel(RecipeCategory recipeCategory, ItemLike result, int amount) {
+        return new PaxelRecipeBuilder(recipeCategory, result, amount);
     }
 
     @Override
-    public @NotNull RecipeBuilder unlockedBy(@NotNull String string, @NotNull Criterion<?> criterion) {
-        this.advancement.addCriterion(string, criterion);
+    public @NotNull ShapedRecipeBuilder define(@NotNull Character character, @NotNull Ingredient ingredient) {
+        super.define(character, ingredient);
+        if (this.key.containsKey(character)) {
+            throw new IllegalArgumentException("Symbol '" + character + "' is already defined!");
+        } else if (character == ' ') {
+            throw new IllegalArgumentException("Symbol ' ' (whitespace) is reserved and cannot be defined");
+        } else {
+            this.key.put(character, ingredient);
+            return this;
+        }
+    }
+
+    @Override
+    public @NotNull ShapedRecipeBuilder pattern(@NotNull String string) {
+        super.pattern(string);
+        if (!this.rows.isEmpty() && string.length() != this.rows.getFirst().length()) {
+            throw new IllegalArgumentException("Pattern must be the same width on every line!");
+        } else {
+            this.rows.add(string);
+            return this;
+        }
+    }
+
+    @Override
+    public @NotNull PaxelRecipeBuilder showNotification(boolean bl) {
+        super.showNotification(bl);
+        this.showNotification = bl;
         return this;
     }
 
     @Override
-    public @NotNull RecipeBuilder group(@Nullable String string) {
+    public @NotNull PaxelRecipeBuilder group(@Nullable String string) {
+        super.group(string);
+        this.group = string;
         return this;
     }
 
     @Override
-    public @NotNull Item getResult() {
-        return this.result;
+    public @NotNull PaxelRecipeBuilder unlockedBy(@NotNull String string, @NotNull Criterion<?> criterion) {
+        super.unlockedBy(string, criterion);
+        this.criteria.put(string, criterion);
+        return this;
     }
 
     @Override
-    public void save(@NotNull RecipeOutput recipeOutput, @NotNull ResourceLocation resourceLocation) {
-        Advancement.Builder advancement$builder = recipeOutput.advancement().addCriterion("has_the_recipe", RecipeUnlockedTrigger.unlocked(resourceLocation))
-                .rewards(AdvancementRewards.Builder.recipe(resourceLocation)).requirements(AdvancementRequirements.Strategy.OR);
-        PaxelRecipe recipe = new PaxelRecipe(this.pickaxe, this.axe, this.shovel, this.stick1, this.stick2, new ItemStack(this.result));
-        recipeOutput.accept(resourceLocation, recipe, advancement$builder.build(resourceLocation.withPrefix("recipes/" + RecipeCategory.TOOLS.getFolderName() + "/")));
+    public void save(RecipeOutput recipeOutput, @NotNull ResourceLocation resourceLocation) {
+        ShapedRecipePattern shapedRecipePattern = this.ensureValid(resourceLocation);
+        Advancement.Builder builder = recipeOutput.advancement()
+                .addCriterion("has_the_recipe", RecipeUnlockedTrigger.unlocked(resourceLocation))
+                .rewards(AdvancementRewards.Builder.recipe(resourceLocation))
+                .requirements(AdvancementRequirements.Strategy.OR);
+        this.criteria.forEach(builder::addCriterion);
+        PaxelRecipe shapedRecipe = new PaxelRecipe(
+                Objects.requireNonNullElse(this.group, ""),
+                RecipeBuilder.determineBookCategory(this.category),
+                shapedRecipePattern,
+                new ItemStack(this.result, this.count),
+                this.showNotification
+        );
+        recipeOutput.accept(resourceLocation, shapedRecipe, builder.build(resourceLocation.withPrefix("recipes/" + this.category.getFolderName() + "/")));
+    }
+
+    private ShapedRecipePattern ensureValid(ResourceLocation resourceLocation) {
+        if (this.criteria.isEmpty()) {
+            throw new IllegalStateException("No way of obtaining recipe " + resourceLocation);
+        } else {
+            return ShapedRecipePattern.of(this.key, this.rows);
+        }
     }
 }

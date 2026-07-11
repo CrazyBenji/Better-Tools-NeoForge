@@ -2,6 +2,7 @@
   "values": [
     "#c:glass_blocks",
     "#c:glass_panes",
+    "minecraft:tinted_glass",
     "minecraft:sea_lantern",
     "minecraft:glowstone",
     "minecraft:redstone_lamp"

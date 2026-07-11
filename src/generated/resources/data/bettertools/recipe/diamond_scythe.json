@@ -6,7 +6,7 @@
       "item": "minecraft:diamond"
     },
     "s": {
-      "item": "minecraft:stick"
+      "tag": "c:rods/wooden"
     }
   },
   "pattern": [

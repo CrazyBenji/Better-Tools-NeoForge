@@ -1,22 +1,27 @@
 {
   "type": "bettertools:paxel",
-  "axe": {
-    "item": "minecraft:diamond_axe"
+  "category": "equipment",
+  "key": {
+    "a": {
+      "item": "minecraft:diamond_axe"
+    },
+    "p": {
+      "item": "minecraft:diamond_pickaxe"
+    },
+    "r": {
+      "tag": "c:rods/wooden"
+    },
+    "s": {
+      "item": "minecraft:diamond_shovel"
+    }
   },
-  "pickaxe": {
-    "item": "minecraft:diamond_pickaxe"
-  },
+  "pattern": [
+    "pas",
+    " r ",
+    " r "
+  ],
   "result": {
     "count": 1,
     "id": "bettertools:diamond_paxel"
-  },
-  "shovel": {
-    "item": "minecraft:diamond_shovel"
-  },
-  "stick1": {
-    "item": "minecraft:stick"
-  },
-  "stick2": {
-    "item": "minecraft:stick"
   }
 }

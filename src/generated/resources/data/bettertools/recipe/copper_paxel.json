@@ -1,0 +1,27 @@
+{
+  "type": "bettertools:paxel",
+  "category": "equipment",
+  "key": {
+    "a": {
+      "item": "bettertools:copper_axe"
+    },
+    "p": {
+      "item": "bettertools:copper_pickaxe"
+    },
+    "r": {
+      "tag": "c:rods/wooden"
+    },
+    "s": {
+      "item": "bettertools:copper_shovel"
+    }
+  },
+  "pattern": [
+    "pas",
+    " r ",
+    " r "
+  ],
+  "result": {
+    "count": 1,
+    "id": "bettertools:copper_paxel"
+  }
+}

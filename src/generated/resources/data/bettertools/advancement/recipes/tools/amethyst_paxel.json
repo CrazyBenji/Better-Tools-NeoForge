@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_amethyst_pickaxe": {
+      "conditions": {
+        "items": [
+          {
+            "items": "bettertools:amethyst_pickaxe"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "bettertools:amethyst_paxel"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_amethyst_pickaxe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "bettertools:amethyst_paxel"
+    ]
+  }
+}

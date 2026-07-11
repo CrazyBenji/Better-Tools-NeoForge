@@ -1,5 +1,25 @@
-// 1.21.1	2026-03-24T11:09:21.107534	Item Models: bettertools
+// 1.21.1	2026-07-11T14:56:30.0546777	Item Models: bettertools
+245831927f2c0dc42c90133829028fa1dab615a7 assets/bettertools/models/item/amethyst_axe.json
+afd89df996f431006d411066ad0de797fa9877c4 assets/bettertools/models/item/amethyst_hammer.json
+187e11a1f659570fe389fc0e93d47f0fdb984596 assets/bettertools/models/item/amethyst_hoe.json
+da3d4af4ed9859640b8a59fa2383e6498a631cc6 assets/bettertools/models/item/amethyst_lumber_axe.json
+606b07e056cc8171cfe60d37deed9245aa7bb9be assets/bettertools/models/item/amethyst_machete.json
+7a8d559f21e74040c92410ab5f165aa53c6062c1 assets/bettertools/models/item/amethyst_paxel.json
+2b39dfbc89a59c75535d0ae50671904feaf9f4a5 assets/bettertools/models/item/amethyst_pickaxe.json
+1fed76b21314dc07dd5a3728dcf50fb7780e1cb9 assets/bettertools/models/item/amethyst_scythe.json
+28114f50b66d78cb7117dfeb97745c363eb37f28 assets/bettertools/models/item/amethyst_shovel.json
+38c4079d132a0f31b6fb7fde1ca43598444ff337 assets/bettertools/models/item/amethyst_sword.json
 487b9ca49687d528ff3994f09825bf8aa8f0e73f assets/bettertools/models/item/bedrock_smasher.json
+eb1dcc19ec122783a686ebe14da08f8c8aea8f9a assets/bettertools/models/item/copper_axe.json
+8cd2ba8027dad5c7ce1c3d93755328231cec168e assets/bettertools/models/item/copper_hammer.json
+448c30f4052b30b8685b4b3b922cdaa07070e7f3 assets/bettertools/models/item/copper_hoe.json
+d5fb08abd35ec56f25c2bed9bbdad149e44083ae assets/bettertools/models/item/copper_lumber_axe.json
+8bf8847f39ccb7f1c254500f2d1215e065c5d904 assets/bettertools/models/item/copper_machete.json
+7cfc044219172d095d8ee45496aec20b581da104 assets/bettertools/models/item/copper_paxel.json
+1a853bcf192e0d1b676de121254695a9b79784cf assets/bettertools/models/item/copper_pickaxe.json
+e85826b51f3d45350705c10314895641b56a8ca9 assets/bettertools/models/item/copper_scythe.json
+3cd1f1cf38f199859a0f22a7e8e65be90a351ffd assets/bettertools/models/item/copper_shovel.json
+61bda00e3f93cbd551d6f6481f8dfcfe38b2b15a assets/bettertools/models/item/copper_sword.json
 a77d12f73c8fc755642c05a25775cd4d46bff550 assets/bettertools/models/item/diamond_hammer.json
 7c88af7726575d26da299b2c46229b2579286c78 assets/bettertools/models/item/diamond_lumber_axe.json
 adaeff76ba2519e3e078c902af7de3ec7b2bee28 assets/bettertools/models/item/diamond_machete.json
@@ -21,3 +41,4 @@ ef4834deb3f7fcc2508876a341b6657a514b7a3d assets/bettertools/models/item/iron_scy
 bfc435261ca3d0cc6b65b5b0dae3a9549ccbf2dd assets/bettertools/models/item/netherite_machete.json
 bdc3e82df5f91847c943fa05f4146fa6f68c79a5 assets/bettertools/models/item/netherite_paxel.json
 7663ae26c5f63de4a6ec55934d412285e9c8b519 assets/bettertools/models/item/netherite_scythe.json
+00212aabc2002e3530977a91e9cfe788779133e4 assets/bettertools/models/item/wood_chisel.json

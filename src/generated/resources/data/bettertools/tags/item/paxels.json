@@ -3,6 +3,8 @@
     "bettertools:iron_paxel",
     "bettertools:golden_paxel",
     "bettertools:diamond_paxel",
-    "bettertools:netherite_paxel"
+    "bettertools:netherite_paxel",
+    "bettertools:copper_paxel",
+    "bettertools:amethyst_paxel"
   ]
 }

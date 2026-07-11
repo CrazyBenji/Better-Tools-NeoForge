@@ -30,6 +30,7 @@ public class BetterToolsBlockTagProvider extends BlockTagsProvider {
         this.tag(BetterToolsTags.Blocks.GLASS_CHIPPER_MINEABLE)
                 .addTag(Tags.Blocks.GLASS_BLOCKS)
                 .addTag(Tags.Blocks.GLASS_PANES)
+                .add(Blocks.TINTED_GLASS)
                 .add(Blocks.SEA_LANTERN)
                 .add(Blocks.GLOWSTONE)
                 .add(Blocks.REDSTONE_LAMP);
@@ -52,5 +53,18 @@ public class BetterToolsBlockTagProvider extends BlockTagsProvider {
 
         this.tag(BlockTags.NEEDS_DIAMOND_TOOL)
                 .add(BetterToolsBlocks.SMASHED_BEDROCK.get());
+
+        this.tag(BetterToolsTags.Blocks.INCORRECT_FOR_COPPER_TOOL)
+                .addTag(BlockTags.NEEDS_DIAMOND_TOOL)
+                .addTag(BlockTags.NEEDS_IRON_TOOL);
+
+        this.tag(BetterToolsTags.Blocks.INCORRECT_FOR_AMETHYST_TOOL)
+                .addTag(BlockTags.INCORRECT_FOR_IRON_TOOL);
+
+        this.tag(BetterToolsTags.Blocks.MACHETE_VEIN_MINES)
+                .addTag(BetterToolsTags.Blocks.MACHETE_MINEABLE);
+
+        this.tag(BetterToolsTags.Blocks.LUMBER_AXE_VEIN_MINES)
+                .addTag(BlockTags.LOGS);
     }
 }

@@ -9,7 +9,7 @@
       "item": "minecraft:nether_star"
     },
     "s": {
-      "item": "minecraft:stick"
+      "tag": "c:rods/wooden"
     }
   },
   "pattern": [

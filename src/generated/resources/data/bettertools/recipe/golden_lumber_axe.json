@@ -9,7 +9,7 @@
       "item": "minecraft:gold_ingot"
     },
     "s": {
-      "item": "minecraft:stick"
+      "tag": "c:rods/wooden"
     }
   },
   "pattern": [

@@ -5,7 +5,7 @@
     "#bettertools:scythes",
     "#bettertools:lumber_axes",
     "#bettertools:glass_chippers",
-    "#bettertools:machetes",
-    "bettertools:bedrock_smasher"
+    "bettertools:bedrock_smasher",
+    "#bettertools:machetes"
   ]
 }

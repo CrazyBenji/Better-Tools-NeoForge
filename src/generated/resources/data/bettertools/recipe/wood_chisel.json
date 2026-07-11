@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "key": {
+    "i": {
+      "item": "minecraft:iron_ingot"
+    },
+    "l": {
+      "tag": "minecraft:logs"
+    },
+    "n": {
+      "item": "minecraft:iron_nugget"
+    }
+  },
+  "pattern": [
+    "n",
+    "i",
+    "l"
+  ],
+  "result": {
+    "count": 1,
+    "id": "bettertools:wood_chisel"
+  }
+}

@@ -1,9 +1,12 @@
-// 1.21.1	2026-03-24T12:44:57.9213248	Advancements
+// 1.21.1	2026-07-11T14:56:30.0611824	Advancements
 1281b6709527852eb1036c87bf75e691b5b799a0 data/bettertools/advancement/husbandry/get_netherite_scythe.json
 ecd932b4edba192f3a0384674ad4ddaf7413559b data/bettertools/advancement/husbandry/get_scythe.json
 9b29c413f9b5800ab51508cdb87633f7d54486d9 data/bettertools/advancement/nether/get_bedrock_smasher.json
-3fc5f9535dd1541b1817509b128f405c225eaab0 data/bettertools/advancement/story/get_glass_chipper.json
+2abfd4d2a7ba2859c7a78f007e9d40e42f084a6d data/bettertools/advancement/story/get_amethyst_tool.json
+b3f2c195fbddd6f0faf6ffeefbc0cbb0a2b8b6b4 data/bettertools/advancement/story/get_copper_tool.json
+9dc39592d5d19e70eb66b5e3266d1882e27c2a74 data/bettertools/advancement/story/get_glass_chipper.json
 4295059395381babcb4526c50e37af4763084b8d data/bettertools/advancement/story/get_hammer.json
-f0cbbe93cad36da3e5dfcee7ab948284f74826fa data/bettertools/advancement/story/get_lumber_axe.json
-d6817a717b88285e41b88f612ceeef929bcc0638 data/bettertools/advancement/story/get_machete.json
+179fe3078e9d35b0f539da4bb1e36a7a0982b36e data/bettertools/advancement/story/get_lumber_axe.json
+36515a7d3277ef2802bea65b3279eacff687a2d9 data/bettertools/advancement/story/get_machete.json
 128775c4449638850f1a06d3ce7e7004d90e508d data/bettertools/advancement/story/get_paxel.json
+41e5c666c82a0362f85a49a0032d37c8e8cb10a3 data/bettertools/advancement/story/get_wood_chisel.json

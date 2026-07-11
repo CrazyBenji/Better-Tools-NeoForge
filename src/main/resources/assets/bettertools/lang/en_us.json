@@ -3,29 +3,52 @@
   "item.bettertools.golden_hammer": "Golden Hammer",
   "item.bettertools.diamond_hammer": "Diamond Hammer",
   "item.bettertools.netherite_hammer": "Netherite Hammer",
+  "item.bettertools.copper_hammer": "Copper Hammer",
+  "item.bettertools.amethyst_hammer": "Amethyst Hammer",
 
   "item.bettertools.iron_paxel": "Iron Paxel",
   "item.bettertools.golden_paxel": "Golden Paxel",
   "item.bettertools.diamond_paxel": "Diamond Paxel",
   "item.bettertools.netherite_paxel": "Netherite Paxel",
+  "item.bettertools.copper_paxel": "Copper Paxel",
+  "item.bettertools.amethyst_paxel": "Amethyst Paxel",
 
   "item.bettertools.iron_scythe": "Iron Scythe",
   "item.bettertools.golden_scythe": "Golden Scythe",
   "item.bettertools.diamond_scythe": "Diamond Scythe",
   "item.bettertools.netherite_scythe": "Netherite Scythe",
+  "item.bettertools.copper_scythe": "Copper Scythe",
+  "item.bettertools.amethyst_scythe": "Amethyst Scythe",
 
   "item.bettertools.glass_chipper": "Glass Chipper",
   "item.bettertools.bedrock_smasher": "Bedrock Smasher",
+  "item.bettertools.wood_chisel": "Wood Chisel",
 
   "item.bettertools.iron_lumber_axe": "Iron Lumber Axe",
   "item.bettertools.golden_lumber_axe": "Golden Lumber Axe",
   "item.bettertools.diamond_lumber_axe": "Diamond Lumber Axe",
   "item.bettertools.netherite_lumber_axe": "Netherite Lumber Axe",
+  "item.bettertools.copper_lumber_axe": "Copper Lumber Axe",
+  "item.bettertools.amethyst_lumber_axe": "Amethyst Lumber Axe",
 
   "item.bettertools.iron_machete": "Iron Machete",
   "item.bettertools.golden_machete": "Golden Machete",
   "item.bettertools.diamond_machete": "Diamond Machete",
   "item.bettertools.netherite_machete": "Netherite Machete",
+  "item.bettertools.copper_machete": "Copper Machete",
+  "item.bettertools.amethyst_machete": "Amethyst Machete",
+
+  "item.bettertools.copper_sword": "Copper Sword",
+  "item.bettertools.copper_shovel": "Copper Shovel",
+  "item.bettertools.copper_pickaxe": "Copper Pickaxe",
+  "item.bettertools.copper_axe": "Copper Axe",
+  "item.bettertools.copper_hoe": "Copper Hoe",
+
+  "item.bettertools.amethyst_sword": "Amethyst Sword",
+  "item.bettertools.amethyst_shovel": "Amethyst Shovel",
+  "item.bettertools.amethyst_pickaxe": "Amethyst Pickaxe",
+  "item.bettertools.amethyst_axe": "Amethyst Axe",
+  "item.bettertools.amethyst_hoe": "Amethyst Hoe",
 
   "block.bettertools.smashed_bedrock": "Smashed Bedrock",
 
@@ -34,9 +57,9 @@
   "enchantment.bettertools.reaping": "Reaping",
 
   "advancements.story.get_hammer.title": "Hammertime",
-  "advancements.story.get_hammer.description": "Acquire a Hammer",
-  "advancements.story.get_paxel.title": "Less is More",
-  "advancements.story.get_paxel.description": "Acquire a Paxel",
+  "advancements.story.get_hammer.description": "It's like a pickaxe, only more destructive",
+  "advancements.story.get_paxel.title": "Paxel?",
+  "advancements.story.get_paxel.description": "Because um... ...you're a pickaxe, axe, and shovel",
   "advancements.husbandry.get_scythe.title": "That's what I call Farming",
   "advancements.husbandry.get_scythe.description": "Acquire a Scythe",
   "advancements.husbandry.get_netherite_scythe.title": "Dedicated Farmer",
@@ -46,9 +69,15 @@
   "advancements.nether.get_bedrock_smasher.title": "Breaking Through",
   "advancements.nether.get_bedrock_smasher.description": "Acquire a tool capable of breaking the hardest material",
   "advancements.story.get_lumber_axe.title": "Lumberjack",
-  "advancements.story.get_lumber_axe.description": "Acquire a Lumber Axe",
+  "advancements.story.get_lumber_axe.description": "Keep this thing away from your house",
   "advancements.story.get_machete.title": "Cutting Through the Competition",
   "advancements.story.get_machete.description": "Acquire a Machete",
+  "advancements.story.get_copper_tools.title": "Worth Every Penny",
+  "advancements.story.get_copper_tools.description": "Acquire any copper tool",
+  "advancements.story.get_amethyst_tools.title": "Crystal Clear",
+  "advancements.story.get_amethyst_tools.description": "Geologists hate this one simple trick",
+  "advancements.story.get_wood_chisel.title": "Almost an Axe",
+  "advancements.story.get_wood_chisel.description": "Acquire a wood chisel to strip some logs",
 
   "desc.bettertools.block_smasher": "Use on:",
   "desc.bettertools.glass_chipper": "Breaks glass like blocks",
@@ -56,5 +85,6 @@
   "desc.bettertools.lumber_axe": "Breaks connected logs",
   "desc.bettertools.paxel": "Works as a pickaxe, axe, or shovel",
   "desc.bettertools.scythe": "Tills in a 3x3 area",
-  "desc.bettertools.machete": "Breaks connected foliage"
+  "desc.bettertools.machete": "Breaks connected foliage",
+  "desc.bettertools.wood_chisel": "Crafts with logs to strip them"
 }
